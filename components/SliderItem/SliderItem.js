@@ -1,7 +1,7 @@
 import styles from './SliderItem.module.scss';
 import React, { useContext } from 'react';
 import cx from 'classnames';
-import { SliderContext } from './../../primitives/context/context';
+import { SliderContext } from './../context/context';
 
 const SliderItem = ({ children, className, ...restProps }) => {
   let { ref } = useContext(SliderContext);

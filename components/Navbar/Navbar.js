@@ -7,7 +7,7 @@ import NavbarSecondary from '../NavbarSecondary/NavbarSecondary';
 import NavbarPrimary from '../NavbarPrimary/NavbarPrimary';
 import NavbarMenu from '../NavbarMenu/NavbarMenu';
 import NavbarAvatar from '../NavbarAvatar/NavbarAvatar';
-import Button from '../../primitives/Button/Button';
+import Button from '../Button/Button';
 
 const Navbar = ({ children, className, ...restProps }) => {
   return (

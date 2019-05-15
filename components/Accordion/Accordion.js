@@ -1,7 +1,7 @@
 import styles from './Accordion.module.scss';
 import React, { useContext } from 'react';
 import cx from 'classnames';
-import { AccordionContext } from '../../primitives/context/context';
+import { AccordionContext } from './../context/context';
 
 const Accordion = ({
   children,

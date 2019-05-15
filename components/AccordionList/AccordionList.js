@@ -1,7 +1,7 @@
 import styles from './AccordionList.module.scss';
 import React, { Component } from 'react';
 import cx from 'classnames';
-import { AccordionContext } from './../../primitives/context/context';
+import { AccordionContext } from './../context/context';
 
 class AccordionList extends Component {
   constructor(props) {

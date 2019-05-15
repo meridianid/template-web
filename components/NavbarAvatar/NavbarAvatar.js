@@ -3,10 +3,10 @@ import React from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
-import Image from '../../primitives/Image/Image';
-import Popout from './../../primitives/Popout/Popout';
+import Image from '../Image/Image';
+import Popout from './../Popout/Popout';
 import Divider from '../../docs/Divider/Divider';
-import Text from '../../primitives/Text/Text';
+import Text from '../Text/Text';
 
 const Content = ({ setVisible, visible }) => (
   <ul className={styles.menuContainer}>

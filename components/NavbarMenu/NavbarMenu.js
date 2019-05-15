@@ -3,7 +3,7 @@ import React from 'react';
 import cx from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-import Text from '../../primitives/Text/Text';
+import Text from '../Text/Text';
 
 const NavbarMenu = ({
   children,
