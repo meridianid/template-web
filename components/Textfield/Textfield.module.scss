@@ -1,4 +1,11 @@
-@import 'invoker-tokens/index.scss';
+@import 'src/tokens';
 
 .root {
+  &:not(:last-child) {
+    margin: $space-stack-m;
+  }
+}
+
+.inline {
+  display: flex;
 }

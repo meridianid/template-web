@@ -1,13 +1,27 @@
-@import 'invoker-tokens/index.scss';
+@import 'src/tokens';
 
 .root {
   width: 100%;
-  border: 1px solid $dark-alpha-20;
+  border: 1px solid;
   border-radius: 2px;
   outline: none;
   transition: all 0.3s;
   box-sizing: border-box;
+}
 
+.dark {
+  composes: root;
+  border-color: $light-alpha-100;
+  &:focus,
+  &:active {
+    border-color: $brand-primary-200;
+    transition: all 0.28s;
+  }
+}
+
+.light {
+  composes: root;
+  border-color: $dark-alpha-20;
   &:focus,
   &:active {
     border-color: $brand-primary-200;
@@ -20,7 +34,7 @@
 }
 
 .inline {
-  display: inline;
+  display: inline-flex;
 }
 
 .critical {

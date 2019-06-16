@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
 import Image from '../Image/Image';
-import Popout from './../Popout/Popout';
+import Popout from '../Popout/Popout';
 import Divider from '../../docs/Divider/Divider';
 import Text from '../Text/Text';
 

@@ -2,7 +2,7 @@ import styles from './FieldHint.module.scss';
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
-import Text from './../Text/Text';
+import Text from '../Text/Text';
 
 class FieldHint extends Component {
   render() {

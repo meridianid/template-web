@@ -2,8 +2,8 @@ import styles from './CheckLabel.module.scss';
 import React, { useContext } from 'react';
 import cx from 'classnames';
 
-import Text from './../Text/Text';
-import { CheckboxContext } from '../context/context';
+import Text from '../Text/Text';
+import { CheckboxContext } from '../__context';
 
 const CheckLabel = ({ label, className, onClick, ...restProps }) => {
   const checkContext = useContext(CheckboxContext);
@@ -20,7 +20,7 @@ const CheckLabel = ({ label, className, onClick, ...restProps }) => {
       className={cx({
         [styles.root]: true,
         [className]: className,
-        [styles.disabled]: checkContext.isDisabled
+        [styles.disabled]: checkContext.isDisabled,
       })}
       onClick={handleClick}
       heading5

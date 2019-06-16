@@ -1,82 +1,90 @@
 import styles from './Textfield.module.scss';
 import React, { useState } from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 
-import FieldLabel from './../FieldLabel/FieldLabel';
-import FieldInput from './../FieldInput/FieldInput';
-import FieldHint from './../FieldHint/FieldHint';
+import FieldHint from '../FieldHint/FieldHint';
+import FieldInputAlt from '../FieldInput/FieldInput';
+import FieldLabel from '../FieldLabel/FieldLabel';
 
 const Textfield = ({
   id,
+  name,
+  type,
+  value,
+  setValue,
+  defaultValue,
+
+  className,
+  labelClassName,
+  fieldClassName,
+
   label,
   secondaryLabel,
   tertiaryLabel,
-  className,
-  placeholder,
-  value,
-  defaultValue,
-  hint,
-  small,
-  type,
-  inline,
-  disabled,
-  required,
-  yupShape,
+
   message,
+  setMessage,
   tone,
+  setTone,
+
   onChange,
   onBlur,
   onFocus,
-  onClick,
+  yupShape,
+
+  small,
+  inline,
+
+  placeholder,
+  disabled,
+  required,
+
   ...restProps
 }) => {
-  const [toneHook, setToneHook] = useState(tone || '');
-  const [messageHook, setMessageHook] = useState(message || '');
-  const [valueHook, setValueHook] = useState(value || '');
-
-  const handleChange = (e, value) => {
-    setValueHook(value);
-    onChange(e, value, type);
-  };
-
-  const setMessage = message => setMessageHook(message);
-  const setTone = tone => setToneHook(tone);
+  const [internalValue, setInternalValue] = useState('');
+  const [internalTone, setInternalTone] = useState('');
+  const [internalMessage, setInternalMessage] = useState('');
 
   return (
     <div
-      {...restProps}
-      className={classnames({
+      className={cx({
         [styles.root]: true,
-        [className]: className
+        [styles.inline]: inline,
+        [className]: className,
       })}
+      {...restProps}
     >
-      <FieldLabel
+      {label && (
+        <FieldLabel
+          className={labelClassName}
+          id={id}
+          label={label}
+          small={small}
+          inline={inline}
+          secondaryLabel={secondaryLabel}
+          tertiaryLabel={tertiaryLabel}
+        />
+      )}
+      <FieldInputAlt
         id={id}
-        label={label}
-        small={small}
-        inline={inline}
-        secondaryLabel={secondaryLabel}
-        tertiaryLabel={tertiaryLabel}
-      />
-      <FieldInput
-        id={id}
+        name={name}
         type={type}
-        disabled={disabled}
-        required={required}
+        className={fieldClassName}
         placeholder={placeholder}
         small={small}
-        value={valueHook}
-        setMessage={setMessage}
-        tone={toneHook}
-        setTone={setTone}
-        onBlur={onBlur}
-        onChange={handleChange}
-        onFocus={onFocus}
-        yupShape={yupShape}
+        inline={inline}
+        tone={tone ? tone : internalTone}
+        setTone={setTone ? setTone : setInternalTone}
+        value={value ? value : internalValue}
+        setValue={
+          value && setValue ? setValue : e => setInternalValue(e.target.value)
+        }
+        setMessage={setMessage ? setMessage : setInternalMessage}
+        required
       />
-
-      {toneHook && messageHook && (
-        <FieldHint tone={toneHook}>{messageHook}</FieldHint>
+      {tone && message && <FieldHint tone={tone}>{message}</FieldHint>}
+      {!tone && !message && internalTone && internalMessage && (
+        <FieldHint tone={internalTone}>{internalMessage}</FieldHint>
       )}
     </div>
   );

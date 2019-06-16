@@ -2,7 +2,7 @@ import styles from './SinglePreview.module.scss';
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
-import Image from './../Image/Image';
+import Image from '../Image/Image';
 
 class SinglePreview extends Component {
   render() {

@@ -1,0 +1,13 @@
+@import 'src/tokens';
+@import 'src/sass/invoker-base/index';
+@import 'src/sass/invoker-layout/grid.module.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.fullScreen {
+  height: 100%;
+}

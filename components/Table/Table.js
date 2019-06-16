@@ -2,10 +2,10 @@ import styles from './Table.module.scss';
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
-import TableRow from './../TableRow/TableRow';
-import TableHeader from './../TableHeader/TableHeader';
+import TableRow from '../TableRow/TableRow';
+import TableHeader from '../TableHeader/TableHeader';
 
-import Text from './../Text/Text';
+import Text from '../Text/Text';
 
 class Table extends Component {
   render() {

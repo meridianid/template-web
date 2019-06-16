@@ -6,8 +6,8 @@ import RangeCore from '../Range/RangeCore/RangeCore';
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import RangeThumb from './../Range/RangeThumb/RangeThumb';
-import RangeRail from './../Range/RangeRail/RangeRail';
+import RangeThumb from '../Range/RangeThumb/RangeThumb';
+import RangeRail from '../Range/RangeRail/RangeRail';
 
 const InputRangeDouble = ({
   children,

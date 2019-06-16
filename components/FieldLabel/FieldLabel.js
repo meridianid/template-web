@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import { any, bool, object, number, string, oneOfType } from 'prop-types';
 
-import Secondary from './../Secondary/Secondary';
-import Text from './../Text/Text';
+import Secondary from '../Secondary/Secondary';
+import Text from '../Text/Text';
 
 class FieldLabel extends Component {
   renderSecondary = () => {

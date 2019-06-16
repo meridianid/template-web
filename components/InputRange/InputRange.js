@@ -2,7 +2,7 @@ import styles from './InputRange.module.scss';
 import React from 'react';
 import cx from 'classnames';
 
-import RangeCore from './../Range/RangeCore/RangeCore';
+import RangeCore from '../Range/RangeCore/RangeCore';
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
@@ -61,7 +61,7 @@ const InputRange = ({
       })}
       {...restProps}
     >
-      <RangeThumb withAffordance css={styleThumb} />
+      <RangeThumb withAffordance={affordance} css={styleThumb} />
       <RangeRail bgRail className={styles.progressContainer}>
         <RangeRail css={styleProgress} className={cx(styles.progress)} />
       </RangeRail>

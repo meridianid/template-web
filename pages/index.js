@@ -1,0 +1,15 @@
+import React from 'react'
+import Text from '../components/Text/Text'
+
+const HomePage = ({
+  className,
+  ...restProps
+  }) => {
+  return (
+    <div>
+      <Text display3>Homepage</Text>
+    </div>
+  )
+}
+
+export default HomePage
