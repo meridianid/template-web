@@ -1,7 +1,7 @@
 import styles from './NavbarAvatar.module.scss';
 import React from 'react';
 import cx from 'classnames';
-import Link from './../Link/Link'
+import Link from '../Link/Link'
 
 import Image from '../Image/Image';
 import Popout from '../Popout/Popout';
