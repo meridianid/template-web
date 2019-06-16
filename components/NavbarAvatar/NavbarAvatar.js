@@ -1,11 +1,11 @@
 import styles from './NavbarAvatar.module.scss';
 import React from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+import Link from './../Link/Link'
 
 import Image from '../Image/Image';
 import Popout from '../Popout/Popout';
-import Divider from '../../docs/Divider/Divider';
+// import Divider from '../Divider/Divider';
 import Text from '../Text/Text';
 
 const Content = ({ setVisible, visible }) => (
@@ -55,7 +55,7 @@ const Content = ({ setVisible, visible }) => (
       </li>
     </Link>
     <div className={styles.link}>
-      <Divider className={styles.divider} small />
+      {/* <Divider className={styles.divider} small /> */}
     </div>
     <Link
       to="/sandbox"
@@ -80,7 +80,7 @@ const Content = ({ setVisible, visible }) => (
       </li>
     </Link>
     <div className={styles.link}>
-      <Divider className={styles.divider} small />
+      {/* <Divider className={styles.divider} small /> */}
     </div>
     <Link
       to="/sandbox"
@@ -116,7 +116,7 @@ const Content = ({ setVisible, visible }) => (
       </li>
     </Link>
     <div className={styles.link}>
-      <Divider className={styles.divider} small />
+      {/* <Divider className={styles.divider} small /> */}
     </div>
     <Link
       to="/sandbox"
