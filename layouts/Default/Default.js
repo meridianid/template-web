@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import "./Default.module.scss"
-import 'invoker-layout/grid.module.scss'
+import './../../sass/invoker-layout/grid.module.scss'
 import '../../assets/fonts/fonts'
 
-// import Navbar from "../../components/Navbar/Navbar"
+import Navbar from "../../components/Navbar/Navbar"
 import ActionBar from "../../components/ActionBar/ActionBar"
 import ActionMenu from "../../components/ActionMenu/ActionMenu"
 
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        {/* <Navbar bleed/> */}
+        <Navbar bleed/>
         {children}
         <ActionBar >
           <ActionMenu to="/">Home</ActionMenu>

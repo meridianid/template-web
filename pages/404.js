@@ -7,9 +7,9 @@ const NotFound = ({
   ...restProps
   }) => {
   return (
-    <div>
+    <>
       <Text display3>404 Pages Not Found</Text>
-    </div>
+    </>
   )
 }
 

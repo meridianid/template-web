@@ -1,16 +1,15 @@
 import React from 'react'
-import Text from '../components/Text/Text'
 
-import Default from './../layouts/Default/Default'
+import Text from '../components/Text/Text'
 
 const HomePage = ({
   className,
   ...restProps
   }) => {
   return (
-    <Default>
+    <>
       <Text display3>Homepage</Text>
-    </Default>
+    </>
   )
 }
 

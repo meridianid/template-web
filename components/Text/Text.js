@@ -15,8 +15,6 @@ import stylesLight from '../Light/Light.module.scss';
 
 import withTextProps from '../__private/withTextProps';
 
-import { ReactComponent as ChevronRight } from './chevron-right.svg';
-
 const Text = ({
   left,
   right,
@@ -39,7 +37,6 @@ const Text = ({
   dark,
   baseline,
   truncate,
-  withChevron,
   breakWord,
   ...restProps
 }) => {
@@ -76,7 +73,6 @@ const Text = ({
       >
         {children}
       </span>
-      {link && withChevron && <ChevronRight className={styles.chevron} />}
     </Component>
   );
 };
