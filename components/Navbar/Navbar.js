@@ -27,7 +27,7 @@ const Navbar = ({ bleed, children, className, ...restProps }) => {
         </NavbarPrimary>
         <NavbarSecondary>
           <NavbarMenu to="/about">About</NavbarMenu>
-          <a href="https://github.com/meridianid/invoker-gatsby" target="_blank" rel="noreferrer noopener">
+          <a href="https://github.com/meridianid/tinker-cli" target="_blank" rel="noreferrer noopener">
             <Button small primary>Go to github</Button>
           </a>
         </NavbarSecondary>
