@@ -13,8 +13,10 @@ const Container = ({
   fixRight,
   ...restProps
 }) => {
+
   let Component = component || 'div'
   let defaultStyle = !narrow && !bleed && !fixLeft && !fixRight;
+
   return (
     <Component
       {...restProps}
