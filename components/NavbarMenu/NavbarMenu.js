@@ -1,8 +1,8 @@
 import styles from './NavbarMenu.module.scss';
 import React from 'react';
 import cx from 'classnames';
-import { NavLink } from 'react-router-dom';
 
+import NavLink from '../NavLink/NavLink'
 import Text from '../Text/Text';
 
 const NavbarMenu = ({

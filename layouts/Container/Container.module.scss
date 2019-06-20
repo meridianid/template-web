@@ -1,11 +1,10 @@
 @import '~invoker-tokens/index.scss';
 
 .root {
-  height: 100%;
+  width: 100%;
 }
 
 .normal {
-  width: 100%;
   max-width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -37,7 +36,6 @@
 }
 
 .narrow {
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
 
@@ -71,8 +69,41 @@
   }
 }
 
+.post {
+  margin-right: auto;
+  margin-left: auto;
+
+  @include screen(phone) {
+    max-width: 100%;
+    padding-right: $gutter-s;
+    padding-left: $gutter-s;
+  }
+
+  @include screen(tabPortrait) {
+    max-width: 100%;
+    padding-right: $gutter-s;
+    padding-left: $gutter-s;
+  }
+
+  @include screen(tabLandscape) {
+    max-width: $max-post;
+    padding-right: $gutter-s;
+    padding-left: $gutter-s;
+  }
+
+  @include screen(desktop) {
+    max-width: $max-post;
+    padding-right: $gutter-s;
+    padding-left: $gutter-s;
+  }
+  @include screen(desktopWide) {
+    max-width: $max-post;
+    padding-right: $gutter-s;
+    padding-left: $gutter-s;
+  }
+}
+
 .bleed {
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
 }

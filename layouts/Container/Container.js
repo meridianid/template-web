@@ -3,30 +3,34 @@ import React from 'react';
 import classnames from 'classnames';
 
 const Container = ({
+  component,
   children,
   className,
   narrow,
   bleed,
+  post,
   fixLeft,
   fixRight,
   ...restProps
 }) => {
+  let Component = component || 'div'
   let defaultStyle = !narrow && !bleed && !fixLeft && !fixRight;
   return (
-    <div
+    <Component
       {...restProps}
       className={classnames({
         [styles.root]: true,
         [styles.normal]: defaultStyle,
         [styles.narrow]: narrow,
         [styles.bleed]: bleed,
+        [styles.post]: post,
         [styles.fixLeft]: fixLeft,
         [styles.fixRight]: fixRight,
         [className]: className
       })}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 
