@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Helmet from 'react-helmet';
 
-import './../../assets/fonts/fonts';
+import '../../assets/fonts/fonts';
 
 const defaultPageTitle = 'Meridian.id';
 

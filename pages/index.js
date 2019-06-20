@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Text from '../components/Text/Text'
 
 const HomePage = ({
@@ -6,9 +7,9 @@ const HomePage = ({
   ...restProps
   }) => {
   return (
-    <div>
+    <>
       <Text display3>Homepage</Text>
-    </div>
+    </>
   )
 }
 
