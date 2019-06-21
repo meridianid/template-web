@@ -13,7 +13,7 @@ import Button from '../Button/Button'
 const Navbar = ({ bleed, children, className, ...restProps }) => {
   return (
     <Container>
-      <div
+      <nav
         className={cx({
           [styles.root]: true,
           [className]: className
@@ -31,7 +31,7 @@ const Navbar = ({ bleed, children, className, ...restProps }) => {
             <Button small primary>Go to github</Button>
           </a>
         </NavbarSecondary>
-      </div>
+      </nav>
     </Container>
   )
 }

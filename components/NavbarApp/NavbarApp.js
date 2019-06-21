@@ -11,7 +11,7 @@ import Button from '../Button/Button';
 
 const Navbar = ({ children, className, ...restProps }) => {
   return (
-    <div
+    <nav
       className={cx({
         [styles.root]: true,
         [className]: className
@@ -34,7 +34,7 @@ const Navbar = ({ children, className, ...restProps }) => {
           }
         />
       </NavbarSecondary>
-    </div>
+    </nav>
   );
 };
 

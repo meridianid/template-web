@@ -1,16 +1,16 @@
-import styles from './NavbarAlt.module.scss';
-import React from 'react';
-import classnames from 'classnames';
+import styles from './NavbarAlt.module.scss'
+import React from 'react'
+import classnames from 'classnames'
 
-import { ReactComponent as Logo } from './mid.svg';
-import { ReactComponent as Github } from './github.svg';
+import { Wordmark } from './../Brand/Brand'
+import {  Github } from './../SocialIcons/SocialIcons'
 
 const NavbarAlt = ({ className, ...restProps }) => {
   return (
     <div className={classnames(styles.root)}>
       <div className={classnames(styles.container)}>
         <div className={styles.brand}>
-          <Logo className={styles.logo} />
+          <Wordmark className={styles.logo} />
         </div>
         <a
           href="https://github.com/vasilenka/invoker"
@@ -20,7 +20,7 @@ const NavbarAlt = ({ className, ...restProps }) => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavbarAlt;
+export default NavbarAlt
