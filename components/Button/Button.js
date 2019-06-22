@@ -3,7 +3,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 
-import withVariationsProps from '../__private/withVariationsProps'
+import withTypeProps from '../__private/withTypeProps'
 import withSizeProps from '../__private/withSizeProps'
 
 const Button = ({
@@ -70,4 +70,4 @@ Button.propTypes = {
   children: node.isRequired
 }
 
-export default withSizeProps(withVariationsProps(Button))
+export default withSizeProps(withTypeProps(Button))
