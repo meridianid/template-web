@@ -15,20 +15,19 @@ const Container = ({
 }) => {
 
   let Component = component || 'div'
-  let defaultStyle = !narrow && !bleed && !fixLeft && !fixRight;
+  let defaultStyle = !narrow && !bleed && !post && !fixLeft && !fixRight;
 
   return (
     <Component
       {...restProps}
       className={classnames({
-        [styles.root]: true,
         [styles.normal]: defaultStyle,
         [styles.narrow]: narrow,
         [styles.bleed]: bleed,
         [styles.post]: post,
         [styles.fixLeft]: fixLeft,
         [styles.fixRight]: fixRight,
-        [className]: className
+        [className]: className,
       })}
     >
       {children}
