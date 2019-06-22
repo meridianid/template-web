@@ -1,127 +1,73 @@
-import styles from './Button.module.scss';
-import React from 'react';
-import classnames from 'classnames';
-import { bool, node, object, string, oneOf, oneOfType } from 'prop-types';
+import styles from './Button.module.scss'
+import React from 'react'
+import classnames from 'classnames'
+import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
+
+import withVariationsProps from '../__private/withVariationsProps'
+import withSizeProps from '../__private/withSizeProps'
 
 const Button = ({
+  as,
   type,
-  href,
-  component,
-  children,
+  size,
   icon,
   stretch,
-  primary,
   onClick,
-  secondary,
-  light,
-  secondaryAlt,
-  primaryBold,
-  primaryAlt,
-  primaryAltBold,
   className,
-  small,
-  large,
   disabled,
+  children,
   ...restProps
 }) => {
-  const handleClickLink = e => {
-    e.preventDefault();
+
+  const handleClick = e => {
+    e.preventDefault()
     if (onClick) {
-      onClick(e);
+      onClick(e)
     }
-  };
+  }
 
-  return component === 'a' ? (
-    <a
-      href={href}
-      onClick={handleClickLink}
+  let Component = as === 'link' ? 'a' : 'button'
+  let componentType = as === 'link' ? null : as
+
+  return (
+    <Component
+      type={componentType}
+      onClick={handleClick}
+      disabled={disabled}
       className={classnames({
-        [styles.link]: true,
-        [styles.secondary]: secondary && !light,
-        [styles.secondaryLight]: secondary && light,
-        [styles.secondaryAlt]: secondaryAlt && !light,
-        [styles.secondaryAltLight]: secondaryAlt && light,
-
-        [styles.primaryMedium]: primary && !light,
-        [styles.primaryMediumLight]: primary && light,
-        [styles.primaryBold]: primaryBold && !light,
-        [styles.primaryBoldLight]: primaryBold && light,
-
-        [styles.primaryAltMedium]: primaryAlt,
-        [styles.primaryAltBold]: primaryAltBold,
-
-        [styles.small]: !secondaryAlt && small,
-        [styles.smallAlt]: secondaryAlt && small,
-        [styles.large]: !small && !secondaryAlt,
-        [styles.largeAlt]: secondaryAlt && !small,
-
+        [styles.root]: true,
+        [styles[type]]: type,
+        [styles[size]]: size,
         [styles.disabled]: disabled,
         [styles.stretch]: stretch,
-
         [className]: className
       })}
-      disabled={disabled}
-      {...restProps}
-    >
-      <span className={styles.childrenLink}>
-        {icon && <span className={styles.icon}>{icon}</span>}
-        {children}
-      </span>
-    </a>
-  ) : (
-    <button
-      type={type || 'button'}
-      onClick={onClick}
-      className={classnames({
-        [styles.secondary]: secondary && !light,
-        [styles.secondaryLight]: secondary && light,
-        [styles.secondaryAlt]: secondaryAlt && !light,
-        [styles.secondaryAltLight]: secondaryAlt && light,
-
-        [styles.primaryMedium]: primary && !light,
-        [styles.primaryMediumLight]: primary && light,
-        [styles.primaryBold]: primaryBold && !light,
-        [styles.primaryBoldLight]: primaryBold && light,
-
-        [styles.primaryAltMedium]: primaryAlt,
-        [styles.primaryAltBold]: primaryAltBold,
-
-        [styles.small]: !secondaryAlt && small,
-        [styles.smallAlt]: secondaryAlt && small,
-        [styles.large]: !small && !secondaryAlt,
-        [styles.largeAlt]: secondaryAlt && !small,
-
-        [styles.disabled]: disabled,
-        [styles.stretch]: stretch,
-
-        [className]: className
-      })}
-      disabled={disabled}
       {...restProps}
     >
       <span className={styles.children}>
         {icon && <span className={styles.icon}>{icon}</span>}
         {children}
       </span>
-    </button>
-  );
-};
+    </Component>
+  )
+}
 
-Button.displayName = 'Button';
+Button.displayName = 'Button'
 
 Button.defaultProps = {
-  large: true,
   disabled: false,
-  type: 'button'
-};
+  as: 'button',
+  type: 'normal',
+  size: 'regular',
+}
 
 Button.propTypes = {
   className: oneOfType([string, object]),
-  type: oneOf(['button', 'submit']),
+  as: oneOf(['button', 'submit', 'link']),
   disabled: bool,
-  small: bool,
-  large: bool,
+  type: string,
+  size: string,
   children: node.isRequired
-};
+}
 
-export default Button;
+export default withSizeProps(withVariationsProps(Button))

@@ -7,7 +7,28 @@ import some from 'lodash/some';
 import includes from 'lodash/includes';
 import forEach from 'lodash/forEach';
 
-export const types = ['navbar', 'footer'];
+export const types = [
+  'normal',
+  'ghost',
+  'text',
+  'primary',
+  'primaryGhost',
+  'primaryText',
+  'secondary',
+  'secondaryGhost',
+  'secondaryText',
+  'light',
+  'lightGhost',
+  'lightText',
+  'success',
+  'successGhost',
+  'danger',
+  'dangerGhost',
+  'dangerText',
+  'warning',
+  'warningGhost',
+  'warningText',
+];
 
 const getBooleanTypePropTypes = () => {
   const booleanProps = {};
@@ -21,6 +42,7 @@ const getBooleanTypePropTypes = () => {
 
 export const TypePropTypes = {
   type: (props, propName, componentName) => {
+
     // eslint-disable-line consistent-return
     if (props.type && !includes(types, props.type)) {
       return new Error(
@@ -51,7 +73,7 @@ const parseBooleanType = props => {
   return typeProps;
 };
 
-const withTypeProps = OriginalComponent => {
+const withVariationsProps = OriginalComponent => {
   const DecoratedComponent = props => {
     const typeProp = parseBooleanType(props);
 
@@ -70,4 +92,4 @@ const withTypeProps = OriginalComponent => {
   return DecoratedComponent;
 };
 
-export default withTypeProps;
+export default withVariationsProps;

@@ -77,7 +77,9 @@ const parseBooleanSize = props => {
 };
 
 const withTextProps = OriginalComponent => {
+
   const DecoratedComponent = props => {
+
     const sizeProp = parseBooleanSize(props);
 
     const newProps = {
@@ -86,10 +88,10 @@ const withTextProps = OriginalComponent => {
     };
 
     return <OriginalComponent {...newProps} />;
+
   };
 
   DecoratedComponent.propTypes = SizePropTypes;
-
   DecoratedComponent.displayName = OriginalComponent.displayName;
 
   return DecoratedComponent;

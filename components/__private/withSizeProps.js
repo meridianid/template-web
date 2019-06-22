@@ -7,7 +7,7 @@ import some from 'lodash/some';
 import includes from 'lodash/includes';
 import forEach from 'lodash/forEach';
 
-export const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+export const sizes = ['small', 'regular', 'large', 'smallAlt', 'alt', 'largeAlt'];
 
 const getBooleanSizePropTypes = () => {
   const booleanProps = {};
