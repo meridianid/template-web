@@ -20,8 +20,8 @@ const Button = ({
 }) => {
 
   const handleClick = e => {
-    e.preventDefault()
     if (onClick) {
+      e.preventDefault()
       onClick(e)
     }
   }
