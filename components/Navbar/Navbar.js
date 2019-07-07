@@ -26,6 +26,7 @@ const Navbar = ({ bleed, children, className, ...restProps }) => {
           </Link>
         </NavbarPrimary>
         <NavbarSecondary>
+          <NavbarMenu to="/blogs">Blogs</NavbarMenu>
           <NavbarMenu to="/about">About</NavbarMenu>
           <a href="https://github.com/meridianid/tinker-cli" target="_blank" rel="noreferrer noopener">
             <Button small primary>Go to github</Button>
