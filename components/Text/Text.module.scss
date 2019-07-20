@@ -1,5 +1,20 @@
 @import 'src/tokens';
 
+// :root {
+//   @if global-variable-exists(scale) {
+//     --scale-element: 1;
+//     --scale-font: 1;
+
+//     // Check the $scale in tokens/layouts.scss
+//     @each $size in $scale {
+//       @media (max-height: nth($size, 1)) {
+//         --scale-element: #{nth($size, 2)};
+//         --scale-font: #{nth($size, 2)};
+//       }
+//     }
+//   }
+// }
+
 .root {
   font-family: $font-primary;
 }
