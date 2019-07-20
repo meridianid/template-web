@@ -15,7 +15,7 @@ import stylesLight from '../Light/Light.module.scss';
 
 import withTextProps from '../__private/withTextProps';
 
-const Text = ({
+export const Text = ({
   left,
   right,
   center,
@@ -83,6 +83,28 @@ Text.defaultProps = {
   baseline: true,
   bullet: false,
   size: 'medium',
+  truncate: false,
+  breakWord: false,
+  component: 'span',
 };
+
+Text.propTypes = {
+  /**
+   * Additional className for Text component
+   */
+  className: oneOfType([string, object]),
+  /** Boolean indicating whether the Text should truncate with ellipsis when overflow */
+  truncate: bool,
+  /** Boolean indicating whether the Text should move to new line and break word when overflow */
+  breakWord: bool,
+  /** Rendering the component as specific html tag */
+  component: string,
+  /**
+   * Size of text
+   * You can use it directly as a prop
+   */
+  size: oneOf(sizes),
+  children: node.isRequired
+}
 
 export default withTextProps(Text);

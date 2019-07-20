@@ -6,7 +6,7 @@ import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 import withTypeProps from '../__private/withTypeProps'
 import withSizeProps from '../__private/withSizeProps'
 
-const Button = ({
+export const Button = ({
   as,
   type,
   size,
@@ -62,10 +62,25 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+  /**
+   * Additional className for button component
+   */
   className: oneOfType([string, object]),
+  /**
+   * String indicating wether the button should render as button, submit button, or link.
+   */
   as: oneOf(['button', 'submit', 'link']),
+  /** Boolean indicating whether the button should render as disabled */
   disabled: bool,
+  /**
+   * Type of the button
+   * You can use it directly as a prop
+   */
   type: string,
+  /**
+   * Size of button
+   * You can use it directly as a prop
+   */
   size: string,
   children: node.isRequired
 }
