@@ -1,4 +1,8 @@
-export { useLockBodyScroll } from './useLockBodyScroll';
-export { useKeyPress } from './useKeyPress';
-export { useMultiKeyPress } from './useMultiKeyPress';
-export { useMediaQuery } from './useMediaQuery';
+export { useEventListener } from './useEventListener'
+export { useIsOnline } from './useIsOnline'
+export { useKeyPress } from './useKeyPress'
+export { useLockBodyScroll } from './useLockBodyScroll'
+export { useMultiKeyPress } from './useMultiKeyPress'
+export { useMediaQuery, defaultQueries } from './useMediaQuery'
+export { useIsMounted } from './useIsMounted'
+export { useScrollPosition, defaultThrottler } from './useScrollPosition'

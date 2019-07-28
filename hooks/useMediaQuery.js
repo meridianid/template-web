@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 /**
  * Check if a query is matched and listen for changes on that query.
@@ -18,27 +18,25 @@ import { useState, useEffect } from 'react';
  *   };
  */
 
-const useMediaQuery = (query) => {
-
-  const [matches, setMatches] = useState(false);
+const useMediaQuery = query => {
+  const [matches, setMatches] = useState(false)
 
   useEffect(() => {
     setMatches(() => window.matchMedia(query).matches)
   }, [])
 
   useEffect(() => {
-    const queryList = window.matchMedia(query);
-    setMatches(queryList.matches);
+    const queryList = window.matchMedia(query)
+    setMatches(queryList.matches)
 
-    const listener = (evt) =>
-      setMatches(evt.matches);
+    const listener = evt => setMatches(evt.matches)
 
-    queryList.addListener(listener);
-    return () => queryList.removeListener(listener);
-  }, [query]);
+    queryList.addListener(listener)
+    return () => queryList.removeListener(listener)
+  }, [query])
 
-  return matches;
-};
+  return matches
+}
 
 /** Default queries ready to use
  *  The breakpoint values are the same with the scss tokens in tokens/layouts.scss
@@ -53,4 +51,4 @@ const defaultQueries = {
   desktopWide: '(min-width: 1440px)',
 }
 
-export { useMediaQuery, defaultQueries };
+export { useMediaQuery, defaultQueries }
