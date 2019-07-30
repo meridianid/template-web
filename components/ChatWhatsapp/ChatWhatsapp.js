@@ -1,38 +1,43 @@
-import React from 'react';
-import {mobileCheck} from './../../utils/mobileCheck'
+import React from 'react'
+import { useIsMobile } from './../../hooks'
+import { string, node } from 'prop-types'
 
 const ChatWhatsapp = ({
   children,
   phone,
+  target,
+  rel,
   message,
   restProps
   }) => {
 
-  const [mobile, setMobile] = React.useState(false)
-  const [link, setLink] = React.useState('https://web.whatsapp.com/send')
-
-  React.useEffect(() => {
-    setMobile(mobileCheck())
-  }, [])
-
-  React.useEffect(() => {
-    mobile
-      ? setLink('https://api.whatsapp.com/send')
-      : setLink('https://web.whatsapp.com/send')
-  }, [mobile])
-
+  let link = useIsMobile() ? 'https://api.whatsapp.com/send' : 'https://web.whatsapp.com/send'
   let appendNumber = phone ? `?phone=${phone}` : null
   let appendMessage = phone && message ? `&text=${message}` : null
 
   return (
     <a
       href={link+appendNumber+appendMessage}
-      target="_blank"
-      rel="noreferrer noopener"
+      target={target}
+      rel={rel}
       {...restProps}>
       {children}
     </a>
   )
+}
+
+ChatWhatsapp.defaultProps = {
+  messge: 'Hello, there! General Kenobi...',
+  target: '_blank',
+  rel: 'noreferrer noopener',
+};
+
+ChatWhatsapp.propTypes = {
+  phone: string.isRequired,
+  message: string,
+  target: string,
+  rel: string,
+  children: node.isRequired,
 }
 
 export default ChatWhatsapp
