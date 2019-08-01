@@ -20,7 +20,7 @@ export const Text = ({
   left,
   right,
   center,
-  component,
+  as,
   bullet,
   children,
   className,
@@ -41,7 +41,7 @@ export const Text = ({
   breakWord,
   ...restProps
 }) => {
-  const Component = component || (bullet ? 'li' : 'span');
+  const Component = as || (bullet ? 'li' : 'span');
   return (
     <Component
       {...restProps}
@@ -86,7 +86,7 @@ Text.defaultProps = {
   size: 'medium',
   truncate: false,
   breakWord: false,
-  component: 'span',
+  as: 'span',
 };
 
 Text.propTypes = {
@@ -99,7 +99,7 @@ Text.propTypes = {
   /** Boolean indicating whether the Text should move to new line and break word when overflow */
   breakWord: bool,
   /** Rendering the component as specific html tag */
-  component: string,
+  as: string,
   /**
    * Size of text
    * You can use it directly as a prop

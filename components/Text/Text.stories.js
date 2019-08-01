@@ -21,7 +21,7 @@ storiesOf("Text", module)
   .add("Sizes", () => (
     <div style={{paddingLeft: '40px'}}>
       <Text
-        component={"h1"}
+        as={"h1"}
         size={select("size", sizes, "heading1")}
         >
         A quick brown fox jump over the lazy dog.
@@ -31,7 +31,7 @@ storiesOf("Text", module)
   .add("Overflow", () => (
     <div style={{ paddingLeft: '40px', width: '200px' }}>
       <Text
-        component={"h2"}
+        as={"h2"}
         size={select("size", sizes, "heading1")}
         truncate={boolean("truncate", true)}
         breakWord={boolean("breakWord", false)}
