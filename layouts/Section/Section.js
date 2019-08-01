@@ -1,10 +1,11 @@
-import styles from './Section.module.scss';
-import React from 'react';
-import cx from 'classnames';
+import styles from './Section.module.scss'
+import React from 'react'
+import cx from 'classnames'
+import { string, node } from 'prop-types'
 
 const Section = ({
   children,
-  component,
+  as,
   smallPhone,
   phone,
   tablet,
@@ -13,15 +14,14 @@ const Section = ({
   desktopWide,
   className,
   ...restProps
-  }) => {
+}) => {
+  // React.useLayoutEffect(() => {
+  //   if(typeof window !== 'undefined') {
+  //     console.log('WIDTH', window.innerWidth)
+  //   }
+  // }, [])
 
-  React.useLayoutEffect(() => {
-    if(typeof window !== 'undefined') {
-      console.log('WIDTH', window.innerWidth)
-    }
-  }, [])
-
-  let Component = component || 'section'
+  let Component = as || 'section'
   return (
     <Component
       className={cx({
@@ -34,10 +34,16 @@ const Section = ({
         [styles[desktopWide]]: desktopWide,
         [className]: className,
       })}
-      {...restProps}>
+      {...restProps}
+    >
       {children}
     </Component>
   )
+}
+
+Section.propTypes = {
+  as: string,
+  children: node.isRequired,
 }
 
 export default Section

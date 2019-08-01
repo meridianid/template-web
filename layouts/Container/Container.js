@@ -1,9 +1,10 @@
-import styles from './Container.module.scss';
-import React from 'react';
-import classnames from 'classnames';
+import styles from './Container.module.scss'
+import React from 'react'
+import classnames from 'classnames'
+import { string, bool, node } from 'prop-types'
 
 const Container = ({
-  component,
+  as,
   children,
   className,
   narrow,
@@ -13,9 +14,8 @@ const Container = ({
   fixRight,
   ...restProps
 }) => {
-
-  let Component = component || 'div'
-  let defaultStyle = !narrow && !bleed && !post && !fixLeft && !fixRight;
+  let Component = as || 'div'
+  let defaultStyle = !narrow && !bleed && !post && !fixLeft && !fixRight
 
   return (
     <Component
@@ -32,7 +32,17 @@ const Container = ({
     >
       {children}
     </Component>
-  );
-};
+  )
+}
 
-export default Container;
+Container.propTypes = {
+  as: string,
+  children: node.isRequired,
+  narrow: bool,
+  bleed: bool,
+  post: bool,
+  fixLeft: bool,
+  fixRight: bool,
+}
+
+export default Container

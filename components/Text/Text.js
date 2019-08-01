@@ -1,20 +1,20 @@
-import styles from './Text.module.scss';
-import React from 'react';
+import styles from './Text.module.scss'
+import React from 'react'
 import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 
-import classnames from 'classnames';
+import classnames from 'classnames'
 
-import stylesPositive from '../Positive/Positive.module.scss';
-import stylesCritical from '../Critical/Critical.module.scss';
-import stylesSecondary from '../Secondary/Secondary.module.scss';
-import stylesHighlight from '../Highlight/Highlight.module.scss';
-import stylesInfo from '../Info/Info.module.scss';
+import stylesPositive from '../Positive/Positive.module.scss'
+import stylesCritical from '../Critical/Critical.module.scss'
+import stylesSecondary from '../Secondary/Secondary.module.scss'
+import stylesHighlight from '../Highlight/Highlight.module.scss'
+import stylesInfo from '../Info/Info.module.scss'
 
-import stylesStrong from '../Strong/Strong.module.scss';
-import stylesRegular from '../Regular/Regular.module.scss';
-import stylesLight from '../Light/Light.module.scss';
+import stylesStrong from '../Strong/Strong.module.scss'
+import stylesRegular from '../Regular/Regular.module.scss'
+import stylesLight from '../Light/Light.module.scss'
 
-import withTextProps, {sizes} from '../__private/withTextProps';
+import withTextProps, { sizes } from '../__private/withTextProps'
 
 export const Text = ({
   left,
@@ -41,7 +41,7 @@ export const Text = ({
   breakWord,
   ...restProps
 }) => {
-  const Component = as || (bullet ? 'li' : 'span');
+  const Component = as || (bullet ? 'li' : 'span')
   return (
     <Component
       {...restProps}
@@ -75,10 +75,10 @@ export const Text = ({
         {children}
       </span>
     </Component>
-  );
-};
+  )
+}
 
-Text.displayName = 'Text';
+Text.displayName = 'Text'
 
 Text.defaultProps = {
   baseline: true,
@@ -87,7 +87,7 @@ Text.defaultProps = {
   truncate: false,
   breakWord: false,
   as: 'span',
-};
+}
 
 Text.propTypes = {
   /**
@@ -105,7 +105,7 @@ Text.propTypes = {
    * You can use it directly as a prop
    */
   size: oneOf(sizes),
-  children: node.isRequired
+  children: node.isRequired,
 }
 
-export default withTextProps(Text);
+export default withTextProps(Text)
