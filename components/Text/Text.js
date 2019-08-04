@@ -16,7 +16,7 @@ import stylesLight from '../Light/Light.module.scss'
 
 import withTextProps, { sizes } from '../__private/withTextProps'
 
-export const Text = ({
+export const NoModifierText = ({
   left,
   right,
   center,
@@ -78,9 +78,9 @@ export const Text = ({
   )
 }
 
-Text.displayName = 'Text'
+NoModifierText.displayName = 'Text'
 
-Text.defaultProps = {
+NoModifierText.defaultProps = {
   baseline: true,
   bullet: false,
   size: 'medium',
@@ -89,7 +89,7 @@ Text.defaultProps = {
   as: 'span',
 }
 
-Text.propTypes = {
+NoModifierText.propTypes = {
   /**
    * Additional className for Text component
    */
@@ -108,4 +108,6 @@ Text.propTypes = {
   children: node.isRequired,
 }
 
-export default withTextProps(Text)
+const Text = withTextProps(NoModifierText)
+
+export default Text
