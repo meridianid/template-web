@@ -6,7 +6,7 @@ import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 import withTypeProps from '../__private/withTypeProps'
 import withSizeProps from '../__private/withSizeProps'
 
-export const Button = ({
+export const NoModifierButton = ({
   as,
   type,
   size,
@@ -18,7 +18,6 @@ export const Button = ({
   children,
   ...restProps
 }) => {
-
   const handleClick = e => {
     if (onClick) {
       e.preventDefault()
@@ -40,10 +39,9 @@ export const Button = ({
         [styles[size]]: size,
         [styles.disabled]: disabled,
         [styles.stretch]: stretch,
-        [className]: className
+        [className]: className,
       })}
-      {...restProps}
-    >
+      {...restProps}>
       <span className={styles.children}>
         {icon && <span className={styles.icon}>{icon}</span>}
         {children}
@@ -52,16 +50,16 @@ export const Button = ({
   )
 }
 
-Button.displayName = 'Button'
+NoModifierButton.displayName = 'Button'
 
-Button.defaultProps = {
+NoModifierButton.defaultProps = {
   disabled: false,
   as: 'button',
   type: 'normal',
   size: 'regular',
 }
 
-Button.propTypes = {
+NoModifierButton.propTypes = {
   /**
    * Additional className for button component
    */
@@ -82,7 +80,9 @@ Button.propTypes = {
    * You can use it directly as a prop
    */
   size: string,
-  children: node.isRequired
+  children: node.isRequired,
 }
 
-export default withSizeProps(withTypeProps(Button))
+const Button = withSizeProps(withTypeProps(NoModifierButton))
+
+export default Button

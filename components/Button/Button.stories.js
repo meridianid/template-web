@@ -1,32 +1,31 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { withInfo } from "@storybook/addon-info";
-import { boolean, select } from "@storybook/addon-knobs";
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { withInfo } from '@storybook/addon-info'
+import { boolean, select } from '@storybook/addon-knobs'
 
-import './../../assets/fonts/fonts';
-import './../../base.scss';
+import './../../assets/fonts/fonts'
+import './../../base.scss'
 
-import Button, { Button as UndecoratedButton } from "./Button";
-import { types } from "../__private/withTypeProps";
-import { sizes } from "../__private/withSizeProps";
+import Button, { NoModifierButton as UndecoratedButton } from './Button'
+import { types } from '../__private/withTypeProps'
+import { sizes } from '../__private/withSizeProps'
 
-storiesOf("Button", module)
+storiesOf('Button', module)
   .addDecorator(
     withInfo({
       inline: true,
       propTables: [UndecoratedButton],
-      propTablesExclude: [Button]
+      propTablesExclude: [Button],
     })
   )
-  .add("default", () => (
+  .add('default', () => (
     <Button
-      as={select("as", ["button", "submit", "link"], "button")}
-      type={select("type", types, "normal")}
-      size={select("size", sizes, "regular")}
-      disabled={boolean("disabled", false)}
-      onClick={action("clicked")}
-    >
+      as={select('as', ['button', 'submit', 'link'], 'button')}
+      type={select('type', types, 'normal')}
+      size={select('size', sizes, 'regular')}
+      disabled={boolean('disabled', false)}
+      onClick={action('clicked')}>
       I am a Button
     </Button>
-  ));
+  ))
