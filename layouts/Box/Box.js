@@ -1,26 +1,14 @@
 import styles from './Box.module.scss'
 import React from 'react'
 import classnames from 'classnames'
-import { oneOf} from 'prop-types'
+import { oneOf } from 'prop-types'
 
 import withDirectionProps from '../../components/__private/withDirectionProps'
 import withJustifyProps from '../../components/__private/withJustifyProps'
 import withAlignProps from '../../components/__private/withAlignProps'
 
-const Box = ({
-  children,
-  component,
-  className,
-
-  inline,
-
-  direction,
-  justify,
-  align,
-
-  ...restProps
-}) => {
-  let Component = component || 'div'
+const BoxNoModifier = ({ as, children, className, inline, direction, justify, align, ...restProps }) => {
+  let Component = as || 'div'
 
   return (
     <Component
@@ -34,25 +22,34 @@ const Box = ({
 
         [className]: className,
       })}
-      {...restProps}
-    >
+      {...restProps}>
       {children}
     </Component>
   )
 }
 
-Box.displayName = 'Box'
+BoxNoModifier.displayName = 'Box'
 
-Box.defaultProps = {
+BoxNoModifier.defaultProps = {
   direction: 'row',
   justify: 'justifyStart',
   align: 'alignCenter',
+  as: 'div',
 }
 
-Box.propTypes = {
+BoxNoModifier.propTypes = {
   direction: oneOf(['row', 'rowReverse', 'column', 'columnReverse']),
-  justify: oneOf(['justifyStart', 'justifyEnd', 'justifyCenter', 'justifyAround', 'justifyBetween', 'justifyEvenly']),
+  justify: oneOf([
+    'justifyStart',
+    'justifyEnd',
+    'justifyCenter',
+    'justifyAround',
+    'justifyBetween',
+    'justifyEvenly',
+  ]),
   align: oneOf(['alignStart', 'alignEnd', 'alignCenter', 'alignStretch', 'alignBaseline']),
 }
 
-export default withDirectionProps(withJustifyProps(withAlignProps(Box)))
+const Box = withDirectionProps(withJustifyProps(withAlignProps(BoxNoModifier)))
+
+export default Box
