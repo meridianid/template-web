@@ -7,7 +7,19 @@ import withDirectionProps from '../../components/__private/withDirectionProps'
 import withJustifyProps from '../../components/__private/withJustifyProps'
 import withAlignProps from '../../components/__private/withAlignProps'
 
-const BoxNoModifier = ({ as, children, className, inline, direction, justify, align, ...restProps }) => {
+const BoxNoModifier = ({
+  children,
+  as,
+  className,
+
+  inline,
+
+  direction,
+  justify,
+  align,
+
+  ...restProps
+}) => {
   let Component = as || 'div'
 
   return (
@@ -33,8 +45,7 @@ BoxNoModifier.displayName = 'Box'
 BoxNoModifier.defaultProps = {
   direction: 'row',
   justify: 'justifyStart',
-  align: 'alignCenter',
-  as: 'div',
+  align: 'alignStart',
 }
 
 BoxNoModifier.propTypes = {

@@ -5,7 +5,7 @@ import { TweenMax, Expo } from 'gsap/TweenMax'
 import { useInView } from 'react-intersection-observer'
 
 import Container from '../../layouts/Container/Container'
-import Text from '../Text/Text'
+import Text from '../../components/Text/Text'
 
 const Scroll = ({ className, ...restProps }) => {
   let mainWrapper = React.createRef()

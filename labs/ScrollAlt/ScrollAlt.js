@@ -3,9 +3,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import Container from '../../layouts/Container/Container'
-import Text from '../Text/Text'
-
-import { useScrollPosition, defaultThrottler, useEventListener } from './../../hooks'
+import Text from '../../../src-alt/components/Text/Text'
 
 const ScrollWrapper = props => {
   let wrapper = React.createRef()
@@ -56,11 +54,11 @@ const ScrollWrapper = props => {
           <div className={styles.card}>12</div>
         </li>
       </ul>
-      <Container>
-        {/* <Text heading5> */}
-        {/* Scroll: x:{position.x}, y:{position.y}{' '} */}
-        {/* </Text> */}
-      </Container>
+      {/* <Container> */}
+      {/* <Text heading5> */}
+      {/* Scroll: x:{position.x}, y:{position.y}{' '} */}
+      {/* </Text> */}
+      {/* </Container> */}
     </>
   )
 }

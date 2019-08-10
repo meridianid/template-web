@@ -1,15 +1,23 @@
 import React from 'react'
 
-import Text from '../components/Text/Text'
+import Default from './../layouts/Default/Default'
+import Intro from '../components/Intro/Intro'
+import Footer from '../components/Footer/Footer'
+import WhoWeAre from '../components/WhoWeAre/WhoWeAre'
+import ScrollAlt from '../labs/ScrollAlt/ScrollAlt'
+import TableView from '../labs/TableView/TableView'
+import Scroll from '../labs/Scroll/Scroll'
 
-const HomePage = ({
-  className,
-  ...restProps
-  }) => {
+const HomePage = ({ className, ...restProps }) => {
   return (
-    <>
-      <Text display3>Homepage</Text>
-    </>
+    <Default>
+      <Intro />
+      <TableView />
+      <Scroll />
+      <ScrollAlt />
+      <WhoWeAre />
+      <Footer />
+    </Default>
   )
 }
 
