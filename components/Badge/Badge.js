@@ -1,19 +1,9 @@
-import styles from './Badge.module.scss';
-import React from 'react';
-import cx from 'classnames';
+import styles from './Badge.module.scss'
+import React from 'react'
+import cx from 'classnames'
 
-const Badge = ({
-  children,
-  primary,
-  small,
-  large,
-  circle,
-  secondary,
-  component,
-  className,
-  ...restProps
-}) => {
-  let Component = component || 'span';
+const Badge = ({ children, primary, small, large, circle, secondary, as, className, ...restProps }) => {
+  let Component = as || 'span'
   return (
     <Component
       className={cx({
@@ -23,13 +13,12 @@ const Badge = ({
         [styles.large]: large,
         [styles.secondary]: secondary,
         [styles.circle]: circle,
-        [className]: className
+        [className]: className,
       })}
-      {...restProps}
-    >
+      {...restProps}>
       {children && <span className={styles.text}>{children}</span>}
     </Component>
-  );
-};
+  )
+}
 
-export default Badge;
+export default Badge

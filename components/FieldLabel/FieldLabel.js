@@ -1,51 +1,40 @@
-import styles from './FieldLabel.module.scss';
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import { any, bool, object, number, string, oneOfType } from 'prop-types';
+import styles from './FieldLabel.module.scss'
+import React, { Component } from 'react'
+import classnames from 'classnames'
+import { any, bool, object, number, string, oneOfType } from 'prop-types'
 
-import Secondary from '../Secondary/Secondary';
-import Text from '../Text/Text';
+import Secondary from '../Secondary/Secondary'
+import Text from '../Text/Text'
 
 class FieldLabel extends Component {
   renderSecondary = () => {
-    const { secondaryLabel } = this.props;
+    const { secondaryLabel } = this.props
 
     if (!secondaryLabel) {
-      return null;
+      return null
     }
 
-    return (
-      <Secondary className={styles.secondaryLabel}>{secondaryLabel}</Secondary>
-    );
-  };
+    return <Secondary className={styles.secondaryLabel}>{secondaryLabel}</Secondary>
+  }
 
   renderTertiary = () => {
-    const { tertiaryLabel } = this.props;
+    const { tertiaryLabel } = this.props
 
     if (!tertiaryLabel) {
-      return null;
+      return null
     }
 
-    return <span className={styles.tertiaryLabel}>{tertiaryLabel}</span>;
-  };
+    return <span className={styles.tertiaryLabel}>{tertiaryLabel}</span>
+  }
 
   render() {
-    let {
-      id,
-      label,
-      inline,
-      small,
-      secondaryLabel,
-      tertiaryLabel,
-      className,
-      ...restProps
-    } = this.props;
+    let { id, label, inline, small, secondaryLabel, tertiaryLabel, className, ...restProps } = this.props
 
     const labelProps = {
       labelMedium: !small,
       labelSmall: small,
-      htmlFor: id
-    };
+      htmlFor: id,
+    }
 
     return (
       <Text
@@ -53,16 +42,15 @@ class FieldLabel extends Component {
         className={classnames({
           [styles.root]: true,
           [styles.stack]: !inline,
-          [styles.inline]: inline
+          [styles.inline]: inline,
         })}
         {...labelProps}
-        component="label"
-      >
+        as="label">
         {label}
         {this.renderSecondary()}
         {this.renderTertiary()}
       </Text>
-    );
+    )
   }
 }
 
@@ -73,14 +61,14 @@ FieldLabel.propTypes = {
   small: bool,
   secondaryLabel: any,
   tertiaryLabel: any,
-  className: oneOfType([string, object])
-};
+  className: oneOfType([string, object]),
+}
 
 FieldLabel.defaultProps = {
   inline: false,
   small: false,
   secondaryLabel: '',
-  tertiaryLabel: ''
-};
+  tertiaryLabel: '',
+}
 
-export default FieldLabel;
+export default FieldLabel

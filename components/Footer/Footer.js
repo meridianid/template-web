@@ -6,16 +6,15 @@ import Container from '../../layouts/Container/Container'
 import Text from '../Text/Text'
 import { Wordmark } from '../Brand/Brand'
 
-const Footer = ({
-  className,
-  ...restProps
-  }) => {
+const Footer = ({ className, ...restProps }) => {
   return (
     <Container>
       <footer className={cx(styles.root, className)} {...restProps}>
         <Wordmark />
         <div className={styles.contacts}>
-          <Text medium component="p"><strong>#dowhatyoulove</strong></Text>
+          <Text medium as="p">
+            <strong>#dowhatyoulove</strong>
+          </Text>
         </div>
       </footer>
     </Container>

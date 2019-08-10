@@ -1,19 +1,19 @@
-import styles from './Combobox.module.scss';
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import Downshift from 'downshift';
+import styles from './Combobox.module.scss'
+import React, { Component } from 'react'
+import classnames from 'classnames'
+import Downshift from 'downshift'
 
-import Autocomplete from './../Autocomplete/Autocomplete';
-import FieldLabel from './../FieldLabel/FieldLabel';
-import FieldInput from './../FieldInput/FieldInput';
-import Text from './../Text/Text';
+import Autocomplete from './../Autocomplete/Autocomplete'
+import FieldLabel from './../FieldLabel/FieldLabel'
+import FieldInput from './../FieldInput/FieldInput'
+import Text from './../Text/Text'
 
 class Combobox extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      error: false
-    };
+      error: false,
+    }
   }
 
   render() {
@@ -31,20 +31,19 @@ class Combobox extends Component {
       inline,
       options,
       ...restProps
-    } = this.props;
+    } = this.props
 
     const labelProps = {
       labelMedium: !small,
       labelSmall: small,
-      htmlFor: id
-    };
+      htmlFor: id,
+    }
 
     return (
       <Downshift
         {...restProps}
         // onChange={selection => alert(`You selected ${selection.name}`)}
-        itemToString={item => (item ? item.name : '')}
-      >
+        itemToString={item => (item ? item.name : '')}>
         {({
           getInputProps,
           getItemProps,
@@ -53,14 +52,13 @@ class Combobox extends Component {
           isOpen,
           inputValue,
           highlightedIndex,
-          selectedItem
+          selectedItem,
         }) => (
           <div
             className={classnames({
               [styles.root]: true,
-              [className]: className
-            })}
-          >
+              [className]: className,
+            })}>
             <FieldLabel
               {...getLabelProps()}
               id={id}
@@ -78,19 +76,13 @@ class Combobox extends Component {
               name={id}
               defaultValue={defaultValue}
               className={classnames({
-                [styles.field]: true
+                [styles.field]: true,
               })}
             />
-            <Autocomplete
-              {...getMenuProps()}
-              isOpen
-              limitedHeight={limitedHeight}
-            >
+            <Autocomplete {...getMenuProps()} isOpen limitedHeight={limitedHeight}>
               {isOpen
                 ? options
-                    .filter(
-                      item => !inputValue || item.name.includes(inputValue)
-                    )
+                    .filter(item => !inputValue || item.name.includes(inputValue))
                     .map((item, index) => (
                       <div
                         className={styles.item}
@@ -99,16 +91,11 @@ class Combobox extends Component {
                           index,
                           item,
                           style: {
-                            backgroundColor:
-                              highlightedIndex === index
-                                ? 'lightgray'
-                                : 'white',
-                            fontWeight:
-                              selectedItem === item ? 'bold' : 'normal'
-                          }
-                        })}
-                      >
-                        <Text heading5 component="h4">
+                            backgroundColor: highlightedIndex === index ? 'lightgray' : 'white',
+                            fontWeight: selectedItem === item ? 'bold' : 'normal',
+                          },
+                        })}>
+                        <Text heading5 as="h4">
                           {item.name}
                         </Text>
                         <Text small>{item.email}</Text>
@@ -119,8 +106,8 @@ class Combobox extends Component {
           </div>
         )}
       </Downshift>
-    );
+    )
   }
 }
 
-export default Combobox;
+export default Combobox

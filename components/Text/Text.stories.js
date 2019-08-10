@@ -7,7 +7,7 @@ import { boolean, select } from '@storybook/addon-knobs'
 import './../../assets/fonts/fonts'
 import './../../base.scss'
 
-import Text, { NoModifierText as TextComponent } from './Text'
+import Text, { TextNoModifier as TextComponent } from './Text'
 import { sizes } from '../__private/withTextProps'
 
 storiesOf('Text', module)
@@ -31,8 +31,7 @@ storiesOf('Text', module)
         as={'h2'}
         size={select('size', sizes, 'heading1')}
         truncate={boolean('truncate', true)}
-        breakWord={boolean('breakWord', false)}
-      >
+        breakWord={boolean('breakWord', false)}>
         A Good Title Should Be Long Enough to Make People Interesting
       </Text>
     </div>

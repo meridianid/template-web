@@ -1,95 +1,81 @@
 import styles from './Text.module.scss'
 import React from 'react'
 import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
-
 import classnames from 'classnames'
-
-import stylesPositive from '../Positive/Positive.module.scss'
-import stylesCritical from '../Critical/Critical.module.scss'
-import stylesSecondary from '../Secondary/Secondary.module.scss'
-import stylesHighlight from '../Highlight/Highlight.module.scss'
-import stylesInfo from '../Info/Info.module.scss'
-
-import stylesStrong from '../Strong/Strong.module.scss'
-import stylesRegular from '../Regular/Regular.module.scss'
-import stylesLight from '../Light/Light.module.scss'
-
 import withTextProps, { sizes } from '../__private/withTextProps'
 
-export const NoModifierText = ({
-  left,
-  right,
-  center,
+export const TextNoModifier = ({
   as,
-  bullet,
   children,
   className,
   size,
-  raw,
+
+  left,
+  right,
+  center,
+  justify,
+
   link,
   positive,
   critical,
   secondary,
   highlight,
   info,
+  light,
+  lightSecondary,
+
   strong,
   regular,
-  light,
-  dark,
-  baseline,
+  thin,
+
   truncate,
   breakWord,
   ...restProps
 }) => {
-  const Component = as || (bullet ? 'li' : 'span')
+  const Component = as || 'span'
   return (
     <Component
-      {...restProps}
       className={classnames({
-        [styles.root]: true,
         [styles[size]]: size,
-        [styles.raw]: raw,
-        [styles.bullet]: bullet,
-        [styles.baseline]: baseline,
-        [styles.link]: link,
+        [styles.truncate]: truncate,
+        [styles.breakWord]: breakWord,
         [styles.left]: left,
         [styles.right]: right,
         [styles.center]: center,
-        [styles.truncate]: truncate,
-        [styles.breakWord]: breakWord,
+        [styles.justify]: justify,
         [className]: className,
       })}
-    >
+      {...restProps}>
       <span
         className={classnames({
-          [stylesPositive.root]: positive,
-          [stylesCritical.root]: critical,
-          [stylesSecondary.root]: secondary,
-          [stylesHighlight.root]: highlight,
-          [stylesInfo.root]: info,
-          [stylesStrong.root]: strong,
-          [stylesRegular.root]: regular,
-          [stylesLight.root]: light,
-        })}
-      >
+          [styles.positive]: positive,
+          [styles.critical]: critical,
+          [styles.secondary]: secondary,
+          [styles.highlight]: highlight,
+          [styles.info]: info,
+          [styles.link]: link,
+          [styles.strong]: strong,
+          [styles.regular]: regular,
+          [styles.thin]: thin,
+          [styles.light]: light,
+          [styles.lightSecondary]: lightSecondary,
+        })}>
         {children}
       </span>
     </Component>
   )
 }
 
-NoModifierText.displayName = 'Text'
+TextNoModifier.displayName = 'Text'
 
-NoModifierText.defaultProps = {
-  baseline: true,
-  bullet: false,
+TextNoModifier.defaultProps = {
   size: 'medium',
   truncate: false,
   breakWord: false,
   as: 'span',
 }
 
-NoModifierText.propTypes = {
+TextNoModifier.propTypes = {
   /**
    * Additional className for Text component
    */
@@ -108,6 +94,6 @@ NoModifierText.propTypes = {
   children: node.isRequired,
 }
 
-const Text = withTextProps(NoModifierText)
+const Text = withTextProps(TextNoModifier)
 
 export default Text
