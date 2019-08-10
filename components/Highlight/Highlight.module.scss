@@ -1,0 +1,16 @@
+@import 'src/tokens';
+
+.root {
+  position: relative;
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    background-color: $brand-secondary-20;
+    top: -$space-xxs;
+    left: -$space-xxs;
+    bottom: -$space-xxs;
+    right: -$space-xxs;
+    z-index: -1;
+  }
+}

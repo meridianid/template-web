@@ -4,6 +4,17 @@ import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 import classnames from 'classnames'
 import withTextProps, { sizes } from '../__private/withTextProps'
 
+import stylesPositive from './../Positive/Positive.module.scss'
+import stylesCritical from './../Critical/Critical.module.scss'
+import stylesHighlight from './../Highlight/Highlight.module.scss'
+import stylesInfo from './../Info/Info.module.scss'
+import stylesSecondary from './../Secondary/Secondary.module.scss'
+import stylesWhite from './../White/White.module.scss'
+import stylesWhiteSecondary from './../WhiteSecondary/WhiteSecondary.module.scss'
+import stylesStrong from './../Strong/Strong.module.scss'
+import stylesRegular from './../Regular/Regular.module.scss'
+import stylesLight from './../Light/Light.module.scss'
+
 export const TextNoModifier = ({
   as,
   children,
@@ -21,12 +32,12 @@ export const TextNoModifier = ({
   secondary,
   highlight,
   info,
-  light,
-  lightSecondary,
+  white,
+  whiteSecondary,
 
   strong,
   regular,
-  thin,
+  light,
 
   truncate,
   breakWord,
@@ -48,17 +59,17 @@ export const TextNoModifier = ({
       {...restProps}>
       <span
         className={classnames({
-          [styles.positive]: positive,
-          [styles.critical]: critical,
-          [styles.secondary]: secondary,
-          [styles.highlight]: highlight,
-          [styles.info]: info,
           [styles.link]: link,
-          [styles.strong]: strong,
-          [styles.regular]: regular,
-          [styles.thin]: thin,
-          [styles.light]: light,
-          [styles.lightSecondary]: lightSecondary,
+          [stylesPositive.root]: positive,
+          [stylesCritical.root]: critical,
+          [stylesSecondary.root]: secondary,
+          [stylesHighlight.root]: highlight,
+          [stylesInfo.root]: info,
+          [stylesWhite.root]: white,
+          [stylesWhiteSecondary.root]: whiteSecondary,
+          [stylesStrong.root]: strong,
+          [stylesRegular.root]: regular,
+          [stylesLight.root]: light,
         })}>
         {children}
       </span>

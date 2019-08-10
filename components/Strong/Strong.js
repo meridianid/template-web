@@ -1,11 +1,11 @@
 import styles from './Strong.module.scss'
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 
 const Strong = ({ children, className, ...restProps }) => {
   return (
-    <strong {...restProps} className={classnames(styles.root, className)}>
+    <strong {...restProps} className={cx(styles.root, className)}>
       {children}
     </strong>
   )

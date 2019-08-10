@@ -16,20 +16,21 @@ const Navbar = ({ bleed, children, className, ...restProps }) => {
       <nav
         className={cx({
           [styles.root]: true,
-          [className]: className
+          [className]: className,
         })}
-        {...restProps}
-      >
+        {...restProps}>
         <NavbarPrimary>
           <Link to="/">
             <BrandLogo />
           </Link>
         </NavbarPrimary>
         <NavbarSecondary>
-          <NavbarMenu to="/blogs">Blogs</NavbarMenu>
-          <NavbarMenu to="/about">About</NavbarMenu>
+          {/* <NavbarMenu to="/blogs">Blogs</NavbarMenu>
+          <NavbarMenu to="/about">About</NavbarMenu> */}
           <a href="https://github.com/meridianid/tinker-cli" target="_blank" rel="noreferrer noopener">
-            <Button small primary>Go to github</Button>
+            <Button small primary>
+              Go to github
+            </Button>
           </a>
         </NavbarSecondary>
       </nav>

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 
-const Link = ({ children, external, to, ...restPprops }) =>
+const Link = ({ children, external, to, ...restProps }) =>
   external ? (
-    <a href={to} {...restPprops}>
+    <a href={to} {...restProps}>
       {children}
     </a>
   ) : (
-    <GatsbyLink to={to} {...restPprops}>
+    <GatsbyLink to={to} {...restProps}>
       {children}
     </GatsbyLink>
   )

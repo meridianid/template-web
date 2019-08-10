@@ -209,53 +209,10 @@
 //   }
 // }
 
-.secondary {
-  color: $dark-alpha-60;
-}
-
-.positive {
-  color: $tone-success-200;
-}
-
-.critical {
-  color: $tone-danger-200;
-}
-
-.info {
-  color: $brand-primary-100;
-}
-
-.highlight {
-  position: relative;
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    background-color: $brand-secondary-20;
-    top: -$space-xxs;
-    left: -$space-xxs;
-    bottom: -$space-xxs;
-    right: -$space-xxs;
-    z-index: -1;
-  }
-}
-
-.strong {
-  font-weight: $bold;
-}
-
 .regular {
   font-weight: $regular;
 }
 
 .thin {
   font-weight: $light;
-}
-
-.light {
-  color: $light-alpha-100;
-}
-
-.lightSecondary {
-  color: $light-alpha-70;
 }
