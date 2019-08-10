@@ -3,7 +3,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import Container from '../../layouts/Container/Container'
-import Text from '../../../src-alt/components/Text/Text'
+import Text from '../../../src/components/Text/Text'
 
 const ScrollWrapper = props => {
   let wrapper = React.createRef()
