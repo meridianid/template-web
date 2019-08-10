@@ -1,15 +1,11 @@
-import React from 'react';
-import { NavLink as RouterNavLink } from 'react-router-dom';
+import React from 'react'
+import { Link as GatsbyNavLink } from 'gatsby'
 
-const NavLink = ({
-  children,
-  to,
-  ...restProps
-  }) => {
+const NavLink = ({ children, to, ...restProps }) => {
   return (
-    <RouterNavLink to={to} {...restProps}>
+    <GatsbyNavLink to={to} {...restProps}>
       {children}
-    </RouterNavLink>
+    </GatsbyNavLink>
   )
 }
 
