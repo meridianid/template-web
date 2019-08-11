@@ -67,7 +67,7 @@ const ScrollAlt = ({ className, ...restProps }) => {
   return (
     <div className={cx(styles.root)} {...restProps}>
       <Container className={styles.container}>
-        <Text as="h1" heading1 className={styles.heading}>
+        <Text as="h1" heading1 className={styles.heading} white>
           Horizontal Sroll Grid
         </Text>
       </Container>

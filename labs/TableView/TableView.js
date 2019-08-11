@@ -7,14 +7,15 @@ import Section from '../../layouts/Section/Section'
 import Box from '../../layouts/Box/Box'
 import Text from '../../components/Text/Text'
 import Button from '../../components/Button/Button'
+import Column from '../../layouts/Column/Column'
 
 const TableViewItem = props => {
   return (
-    <div className={styles.itemWrapper}>
-      <Box as="li" justifyBetween alignCenter className={styles.item}>
+    <Column as="li" tablet={4} className={styles.itemWrapper}>
+      <Box justifyBetween alignCenter className={styles.item}>
         {props.children}
       </Box>
-    </div>
+    </Column>
   )
 }
 
@@ -26,10 +27,10 @@ const TableView = ({ className, ...restProps }) => {
           <TableViewItem>
             <Box as="header" column>
               <Text positive heading5 as="h3">
-                Title goes here
+                1234567890
               </Text>
-              <Text small as="p">
-                Description goes here
+              <Text positive heading5 as="h3">
+                <span style={{ fontVariantNumeric: 'tabular-nums' }}>1234567890</span>
               </Text>
             </Box>
             <Button small primary>

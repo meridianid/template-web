@@ -3,16 +3,20 @@
   @if type-of($number) == 'number' and unitless($number) {
     $column-amount: #{$grid-column-count / $number};
     $ratio: $number / $grid-column-count;
-    $column-width: calc(#{percentage($number / $grid-column-count)} - #{($row-gutter * 2 - $gutter) / $column-amount});
+    $column-width: calc(
+      #{percentage($number / $grid-column-count)} - #{($row-gutter * 2 - $gutter) / $column-amount}
+    );
     @return $column-width;
   }
 
-  $column-amount: 100% / $number;
-  $column-width: calc(#{100% / $column-amount} - #{($row-gutter * 2 - $gutter) / $column-amount});
+  $column-amount: (#{100% / $number});
+  $column-width: calc(#{$number} - #{((($row-gutter * 2) - $gutter) / $column-amount)});
   @return $column-width;
 }
 
 @function convertify($number) {
+  // @debug ($number);
+
   @if type-of($number) == 'number' and unitless($number) {
     @return percentage($number / $grid-column-count);
   }
@@ -20,7 +24,13 @@
   @return $number;
 }
 
-@mixin grid-row($direction: ltr, $align: stretch, $justify: flex-start, $grid-gutter: $gutter, $wrap: wrap) {
+@mixin grid-row(
+  $direction: ltr,
+  $align: stretch,
+  $justify: flex-start,
+  $grid-gutter: $gutter,
+  $wrap: wrap
+) {
   display: flex;
   flex-wrap: $wrap;
 
@@ -37,7 +47,13 @@
   }
 }
 
-@mixin grid-row-alt($direction: ltr, $align: stretch, $justify: flex-start, $grid-gutter: $gutter, $wrap: wrap) {
+@mixin grid-row-alt(
+  $direction: ltr,
+  $align: stretch,
+  $justify: flex-start,
+  $grid-gutter: $gutter,
+  $wrap: wrap
+) {
   display: flex;
   flex-wrap: $wrap;
 
@@ -59,6 +75,16 @@
   padding-right: $grid-gutter/2;
 
   width: convertify-alt($width, $row-gutter);
+}
+
+@mixin grid-col-alt($width: 100%, $align: stretch, $grid-gutter: $gutter) {
+  flex: none;
+  align-self: $align;
+
+  padding-left: $grid-gutter/2;
+  padding-right: $grid-gutter/2;
+
+  width: convertify($width);
 }
 
 @mixin grid-offset-left($offset: 1) {

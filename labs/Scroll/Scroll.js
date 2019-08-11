@@ -43,7 +43,7 @@ const Scroll = ({ className, ...restProps }) => {
   return (
     <div className={cx(styles.root)} {...restProps}>
       <Container className={styles.container}>
-        <Text heading1 className={styles.text} as="h1" light>
+        <Text heading1 className={styles.text} as="h1" white>
           Horizontal Scroll Flexbox
         </Text>
       </Container>
