@@ -11,7 +11,7 @@ import Column from '../../layouts/Column/Column'
 
 const TableViewItem = props => {
   return (
-    <Column as="li" tablet={4} className={styles.itemWrapper}>
+    <Column as="li" tablet={4} desktop={3} desktopWide={2} className={styles.itemWrapper}>
       <Box justifyBetween alignCenter className={styles.item}>
         {props.children}
       </Box>

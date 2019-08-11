@@ -15,47 +15,17 @@ const Column = ({
   ...restProps
 }) => {
   let Component = as || 'div'
-  let ref = React.createRef()
-  React.useEffect(() => {
-    if (ref.current) {
-      if (smallPhone) {
-        typeof smallPhone === 'number'
-          ? ref.current.style.setProperty('--column-amount-smallPhone', `${(smallPhone * 100) / 12}%`)
-          : ref.current.style.setProperty('--column-amount-smallPhone', smallPhone)
-      }
-      if (phone) {
-        typeof phone === 'number'
-          ? ref.current.style.setProperty('--column-amount-phone', `${(phone * 100) / 12}%`)
-          : ref.current.style.setProperty('--column-amount-phone', phone)
-      }
-      if (tablet) {
-        typeof tablet === 'number'
-          ? ref.current.style.setProperty('--column-amount-tablet', `${(tablet * 100) / 12}%`)
-          : ref.current.style.setProperty('--column-amount-tablet', tablet)
-      }
-      if (tabletLandscape) {
-        typeof tabletLandscape === 'number'
-          ? ref.current.style.setProperty(
-              '--column-amount-tabletLandscape',
-              `${(tabletLandscape * 100) / 12}%`
-            )
-          : ref.current.style.setProperty('--column-amount-tabletLandscape', tabletLandscape)
-      }
-      if (desktop) {
-        typeof desktop === 'number'
-          ? ref.current.style.setProperty('--column-amount-desktop', `${(desktop * 100) / 12}%`)
-          : ref.current.style.setProperty('--column-amount-desktop', desktop)
-      }
-      if (desktopWide) {
-        typeof desktopWide === 'number'
-          ? ref.current.style.setProperty('--column-amount-desktopWide', `${(desktopWide * 100) / 12}%`)
-          : ref.current.style.setProperty('--column-amount-desktopWide', desktopWide)
-      }
-    }
-  }, [ref, smallPhone, phone, tablet, tabletLandscape, desktop, desktopWide])
+  const transformValue = val => (typeof val === 'number' ? `${(val * 100) / 12}%` : val)
   return (
     <Component
-      ref={ref}
+      css={{
+        '--column-amount-desktopWide': transformValue(desktopWide),
+        '--column-amount-desktop': transformValue(desktop),
+        '--column-amount-tabletLandscape': transformValue(tabletLandscape),
+        '--column-amount-tablet': transformValue(tablet),
+        '--column-amount-phone': transformValue(phone),
+        '--column-amount-smallPhone': transformValue(smallPhone),
+      }}
       className={cx({
         [styles.smallPhone]: true,
         [styles.phone]: phone,
