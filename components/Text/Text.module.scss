@@ -89,18 +89,9 @@
   font-weight: $regular;
 }
 
-// Captions
-.captionBold {
-  composes: root;
-  display: inline-block;
-  font-size: $caption-1;
-  font-weight: $medium;
-  text-transform: uppercase;
-  line-height: 16px;
-}
+// Caption
 .caption {
   composes: root;
-  display: inline-block;
   font-size: $caption-1;
   font-weight: $regular;
   line-height: 16px;
@@ -109,28 +100,19 @@
 // Label
 .label {
   composes: root;
+  font-size: $heading-5;
+  line-height: 22px;
   color: $dark-alpha-70;
   font-weight: 500;
   margin: $space-stack-s;
 }
-
 .labelSmall {
-  composes: label;
+  composes: root;
   font-size: $heading-6;
   line-height: 18px;
-}
-
-.labelMedium {
-  composes: label;
-  font-size: $heading-5;
-  line-height: 22px;
-}
-
-.message {
-  font-family: $font-primary;
-  font-size: $heading-5;
-  font-weight: $regular;
-  color: $dark-alpha-60;
+  color: $dark-alpha-70;
+  font-weight: 500;
+  margin: $space-stack-s;
 }
 
 .link {

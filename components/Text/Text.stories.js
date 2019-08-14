@@ -9,6 +9,7 @@ import './../../base.scss'
 
 import Text, { TextNoModifier as TextComponent } from './Text'
 import { sizes } from '../__private/withTextProps'
+import { modifiers } from '../__private/withTextModifierProps'
 
 storiesOf('Text', module)
   .addDecorator(
@@ -18,21 +19,32 @@ storiesOf('Text', module)
       propTablesExclude: [Text],
     })
   )
-  .add('Sizes', () => (
-    <div style={{ paddingLeft: '40px' }}>
-      <Text as={'h1'} size={select('size', sizes, 'heading1')}>
-        A quick brown fox jump over the lazy dog.
-      </Text>
-    </div>
-  ))
-  .add('Overflow', () => (
-    <div style={{ paddingLeft: '40px', width: '200px' }}>
+  .add('All props', () => (
+    <div style={{ padding: '40px', backgroundColor: '#e4e5e6' }}>
       <Text
         as={'h2'}
+        align={select('align', ['left', 'right', 'center', 'justify'], 'left')}
         size={select('size', sizes, 'heading1')}
-        truncate={boolean('truncate', true)}
-        breakWord={boolean('breakWord', false)}>
-        A Good Title Should Be Long Enough to Make People Interesting
+        truncate={boolean('truncate', false)}
+        breakWord={boolean('breakWord', false)}
+        light={boolean('light', false)}
+        strong={boolean('strong', false)}
+        modifier={select('modifier', modifiers, false)}>
+        The reward for work well done is the opportunity to do more.
       </Text>
     </div>
   ))
+// .add('Sizes', () => (
+//   <div style={{ padding: '40px', backgroundColor: '#e4e5e6' }}>
+//     <Text as={'h1'} size={select('size', sizes, 'heading1')}>
+//       The reward for work well done is the opportunity to do more.
+//     </Text>
+//   </div>
+// ))
+// .add('Overflow', () => (
+//   <div style={{ padding: '40px', width: '400px', backgroundColor: '#e4e5e6' }}>
+//     <Text as="h2" heading1 truncate={boolean('truncate', true)} breakWord={boolean('breakWord', false)}>
+//       The reward for work well done is the opportunity to do more.
+//     </Text>
+//   </div>
+// ))

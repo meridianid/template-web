@@ -20,12 +20,14 @@ storiesOf('Button', module)
     })
   )
   .add('default', () => (
-    <Button
-      as={select('as', ['button', 'submit', 'link'], 'button')}
-      type={select('type', types, 'normal')}
-      size={select('size', sizes, 'regular')}
-      disabled={boolean('disabled', false)}
-      onClick={action('clicked')}>
-      I am a Button
-    </Button>
+    <div style={{ padding: '40px' }}>
+      <Button
+        as={select('as', ['button', 'submit', 'link'], 'button')}
+        type={select('type', types, 'normal')}
+        size={select('size', sizes, 'regular')}
+        disabled={boolean('disabled', false)}
+        onClick={action('clicked')}>
+        I am a Button
+      </Button>
+    </div>
   ))

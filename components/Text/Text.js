@@ -3,37 +3,38 @@ import React from 'react'
 import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
 import classnames from 'classnames'
 import withTextProps, { sizes } from '../__private/withTextProps'
+import withTextModifierProps, { modifiers } from '../__private/withTextModifierProps'
 
-import stylesPositive from './../Positive/Positive.module.scss'
-import stylesCritical from './../Critical/Critical.module.scss'
-import stylesHighlight from './../Highlight/Highlight.module.scss'
-import stylesInfo from './../Info/Info.module.scss'
-import stylesSecondary from './../Secondary/Secondary.module.scss'
-import stylesWhite from './../White/White.module.scss'
-import stylesWhiteSecondary from './../WhiteSecondary/WhiteSecondary.module.scss'
+import { root as stylesSecondary } from './../Secondary/Secondary.module.scss'
+import { root as stylesPositive } from './../Positive/Positive.module.scss'
+import { root as stylesCritical } from './../Critical/Critical.module.scss'
+import { root as stylesHighlight } from './../Highlight/Highlight.module.scss'
+import { root as stylesInfo } from './../Info/Info.module.scss'
+import { root as stylesWhite } from './../White/White.module.scss'
+import { root as stylesWhiteSecondary } from './../WhiteSecondary/WhiteSecondary.module.scss'
 import stylesStrong from './../Strong/Strong.module.scss'
 import stylesRegular from './../Regular/Regular.module.scss'
 import stylesLight from './../Light/Light.module.scss'
+
+const textStyleModifier = {
+  link: styles.link,
+  secondary: stylesSecondary,
+  positive: stylesPositive,
+  critical: stylesCritical,
+  highlight: stylesHighlight,
+  info: stylesInfo,
+  white: stylesWhite,
+  whiteSecondary: stylesWhiteSecondary,
+}
 
 export const TextNoModifier = ({
   as,
   children,
   className,
   size,
+  modifier,
 
-  left,
-  right,
-  center,
-  justify,
-
-  link,
-  positive,
-  critical,
-  secondary,
-  highlight,
-  info,
-  white,
-  whiteSecondary,
+  align,
 
   strong,
   regular,
@@ -43,6 +44,7 @@ export const TextNoModifier = ({
   breakWord,
   ...restProps
 }) => {
+  console.log('Text', [size])
   const Component = as || 'span'
   return (
     <Component
@@ -50,26 +52,16 @@ export const TextNoModifier = ({
         [styles[size]]: size,
         [styles.truncate]: truncate,
         [styles.breakWord]: breakWord,
-        [styles.left]: left,
-        [styles.right]: right,
-        [styles.center]: center,
-        [styles.justify]: justify,
+        [styles[align]]: align,
         [className]: className,
       })}
       {...restProps}>
       <span
         className={classnames({
-          [styles.link]: link,
-          [stylesPositive.root]: positive,
-          [stylesCritical.root]: critical,
-          [stylesSecondary.root]: secondary,
-          [stylesHighlight.root]: highlight,
-          [stylesInfo.root]: info,
-          [stylesWhite.root]: white,
-          [stylesWhiteSecondary.root]: whiteSecondary,
+          [textStyleModifier[modifier]]: modifier,
+          [stylesLight.root]: light,
           [stylesStrong.root]: strong,
           [stylesRegular.root]: regular,
-          [stylesLight.root]: light,
         })}>
         {children}
       </span>
@@ -80,7 +72,11 @@ export const TextNoModifier = ({
 TextNoModifier.displayName = 'Text'
 
 TextNoModifier.defaultProps = {
+  align: 'left',
   size: 'medium',
+  light: false,
+  strong: false,
+  modifier: false,
   truncate: false,
   breakWord: false,
   as: 'span',
@@ -98,13 +94,35 @@ TextNoModifier.propTypes = {
   /** Rendering the component as specific html tag */
   as: string,
   /**
+   * Alignment of text
+   */
+  align: oneOf(['left', 'right', 'center', 'justify']),
+  /**
    * Size of text
    * You can use it directly as a prop
    */
   size: oneOf(sizes),
+  /**
+   * Modifiers of text styles
+   * You can use it directly as a prop
+   */
+  modifier: oneOf(modifiers),
+
+  /**
+   * Apply designated strong font-weight to text
+   */
+  strong: bool,
+  /**
+   * Apply designated regular font-weight to text
+   */
+  regular: bool,
+  /**
+   * Apply designated light font-weight to text
+   */
+  light: bool,
   children: node.isRequired,
 }
 
-const Text = withTextProps(TextNoModifier)
+const Text = withTextProps(withTextModifierProps(TextNoModifier))
 
 export default Text
