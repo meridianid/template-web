@@ -7,7 +7,7 @@ import withDirectionProps from '../../components/__private/withDirectionProps'
 import withJustifyProps from '../../components/__private/withJustifyProps'
 import withAlignProps from '../../components/__private/withAlignProps'
 
-const BoxNoModifier = ({
+export const BoxNoModifier = ({
   children,
   as,
   className,
