@@ -34,17 +34,3 @@ storiesOf('Text', module)
       </Text>
     </div>
   ))
-// .add('Sizes', () => (
-//   <div style={{ padding: '40px', backgroundColor: '#e4e5e6' }}>
-//     <Text as={'h1'} size={select('size', sizes, 'heading1')}>
-//       The reward for work well done is the opportunity to do more.
-//     </Text>
-//   </div>
-// ))
-// .add('Overflow', () => (
-//   <div style={{ padding: '40px', width: '400px', backgroundColor: '#e4e5e6' }}>
-//     <Text as="h2" heading1 truncate={boolean('truncate', true)} breakWord={boolean('breakWord', false)}>
-//       The reward for work well done is the opportunity to do more.
-//     </Text>
-//   </div>
-// ))

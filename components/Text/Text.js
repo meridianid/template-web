@@ -72,17 +72,20 @@ export const TextNoModifier = ({
 TextNoModifier.displayName = 'Text'
 
 TextNoModifier.defaultProps = {
-  align: 'left',
+  as: 'span',
   size: 'medium',
-  light: false,
-  strong: false,
+  align: 'left',
   modifier: false,
   truncate: false,
   breakWord: false,
-  as: 'span',
+  regular: false,
+  light: false,
+  strong: false,
 }
 
 TextNoModifier.propTypes = {
+  /** Rendering the component as specific html tag */
+  as: string,
   /**
    * Additional className for Text component
    */
@@ -91,8 +94,6 @@ TextNoModifier.propTypes = {
   truncate: bool,
   /** Boolean indicating whether the Text should move to new line and break word when overflow */
   breakWord: bool,
-  /** Rendering the component as specific html tag */
-  as: string,
   /**
    * Alignment of text
    */

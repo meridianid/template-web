@@ -1,11 +1,12 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+import { storiesOf, setAddon } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withInfo } from '@storybook/addon-info'
 import { boolean, select } from '@storybook/addon-knobs'
 
-import '../../assets/fonts/fonts
+import '../../assets/fonts/fonts'
 import './../../base.scss'
+import './../../styles/invoker-base/storybook.base.css'
 
 import Box, { BoxNoModifier as BoxComponent } from './Box'
 import { directions } from '../../components/__private/withDirectionProps'
