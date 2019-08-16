@@ -5,6 +5,10 @@ import classnames from 'classnames'
 import withTextProps, { sizes } from '../__private/withTextProps'
 import withTextModifierProps, { modifiers } from '../__private/withTextModifierProps'
 
+import stylesStrong from './../Strong/Strong.module.scss'
+import stylesRegular from './../Regular/Regular.module.scss'
+import stylesLight from './../Light/Light.module.scss'
+
 import { root as stylesSecondary } from './../Secondary/Secondary.module.scss'
 import { root as stylesPositive } from './../Positive/Positive.module.scss'
 import { root as stylesCritical } from './../Critical/Critical.module.scss'
@@ -12,9 +16,6 @@ import { root as stylesHighlight } from './../Highlight/Highlight.module.scss'
 import { root as stylesInfo } from './../Info/Info.module.scss'
 import { root as stylesWhite } from './../White/White.module.scss'
 import { root as stylesWhiteSecondary } from './../WhiteSecondary/WhiteSecondary.module.scss'
-import stylesStrong from './../Strong/Strong.module.scss'
-import stylesRegular from './../Regular/Regular.module.scss'
-import stylesLight from './../Light/Light.module.scss'
 
 const textStyleModifier = {
   link: styles.link,

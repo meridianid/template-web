@@ -8,24 +8,20 @@ import '../../assets/fonts/fonts'
 import './../../base.scss'
 import './../../styles/invoker-base/storybook.base.css'
 
-import Container from './Container'
+import Section from './Section'
 import StoryPreview from '../../utils/StoryPreview'
 
-storiesOf('Container', module)
+storiesOf('Section', module)
   .addDecorator(
     withInfo({
       inline: true,
-      propTables: [Container],
+      propTables: [Section],
       propTablesExclude: [StoryPreview],
     })
   )
   .add('default', () => (
     <StoryPreview>
-      <Container
-        narrow={boolean('narrow', false)}
-        bleed={boolean('bleed', false)}
-        post={boolean('post', false)}
-        style={{ backgroundColor: 'teal' }}>
+      <Section style={{ backgroundColor: 'rebeccapurple' }} as="section">
         <p style={{ backgroundColor: 'snow', marginBottom: 12 }}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis doloribus omnis eos.
           Consectetur architecto obcaecati voluptas, facilis libero distinctio saepe quia aut repudiandae
@@ -36,6 +32,6 @@ storiesOf('Container', module)
           Consectetur architecto obcaecati voluptas, facilis libero distinctio saepe quia aut repudiandae
           nam fugit pariatur eos maiores, deleniti consequatur?
         </p>
-      </Container>
+      </Section>
     </StoryPreview>
   ))

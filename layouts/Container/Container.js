@@ -1,26 +1,15 @@
 import styles from './Container.module.scss'
 import React from 'react'
 import classnames from 'classnames'
-import { string, bool, node } from 'prop-types'
+import { string, bool, object, node, oneOfType } from 'prop-types'
 
-const ContainerNoModifier = ({
-  as,
-  children,
-  className,
-  narrow,
-  bleed,
-  post,
-  fixLeft,
-  fixRight,
-  ...restProps
-}) => {
+const Container = ({ as, children, className, narrow, bleed, post, fixLeft, fixRight, ...restProps }) => {
   let Component = as || 'div'
-  let defaultStyle = !narrow && !bleed && !post && !fixLeft && !fixRight
 
   return (
     <Component
       className={classnames({
-        [styles.normal]: defaultStyle,
+        [styles.normal]: !narrow && !bleed && !post && !fixLeft && !fixRight,
         [styles.narrow]: narrow,
         [styles.bleed]: bleed,
         [styles.post]: post,
@@ -34,9 +23,9 @@ const ContainerNoModifier = ({
   )
 }
 
-ContainerNoModifier.displayName = 'Container'
+Container.displayName = 'Container'
 
-ContainerNoModifier.defaultProps = {
+Container.defaultProps = {
   as: 'div',
   narrow: false,
   bleed: false,
@@ -45,7 +34,7 @@ ContainerNoModifier.defaultProps = {
   fixRight: false,
 }
 
-ContainerNoModifier.propTypes = {
+Container.propTypes = {
   className: oneOfType([string, object]),
   /**
    * Rendering the component as specific html tag
@@ -73,7 +62,5 @@ ContainerNoModifier.propTypes = {
   fixRight: bool,
   children: node.isRequired,
 }
-
-const Container = ContainerNoModifier
 
 export default Container
