@@ -1,4 +1,4 @@
-import styles from './CheckboxAlt.module.scss'
+import styles from './Checkbox.module.scss'
 import React, { useContext } from 'react'
 import cx from 'classnames'
 import Text from '../../components/Text/Text'
