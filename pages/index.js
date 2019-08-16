@@ -7,12 +7,14 @@ import WhoWeAre from '../components/WhoWeAre/WhoWeAre'
 import ScrollAlt from '../labs/ScrollAlt/ScrollAlt'
 import TableView from '../labs/TableView/TableView'
 import Scroll from '../labs/Scroll/Scroll'
+import CheckboxPage from '../labs/CheckboxPage/CheckboxPage'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
     <Default>
       <Intro />
       <TableView />
+      <CheckboxPage />
       <Scroll />
       <ScrollAlt />
       <WhoWeAre />

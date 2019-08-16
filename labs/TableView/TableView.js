@@ -78,7 +78,7 @@ const TableView = ({ className, ...restProps }) => {
           </TableViewItem>
           <TableViewItem>
             <Box as="header" column style={{ width: '100%' }}>
-              <Text as="h3" link heading5 right>
+              <Text as="h3" link heading5>
                 The Title of Item Goes Here
               </Text>
               <Text small as="p">

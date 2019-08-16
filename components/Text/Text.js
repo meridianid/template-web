@@ -45,7 +45,6 @@ export const TextNoModifier = ({
   breakWord,
   ...restProps
 }) => {
-  console.log('Text', [size])
   const Component = as || 'span'
   return (
     <Component
