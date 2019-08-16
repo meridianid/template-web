@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { storiesOf, setAddon } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withInfo } from '@storybook/addon-info'
@@ -12,9 +12,47 @@ import Box from '../../layouts/Box/Box'
 import { Checkbox, Checkmark, Checklabel } from './Checkbox'
 import StoryPreview from '../../utils/StoryPreview'
 
-const items = ['Look at the stars!', 'Look at their shine for you', 'Everything you do', "It's all yellow"]
+const allProps = () => {
+  const [selected, setSelected] = useState([])
 
-storiesOf('Container', module)
+  const items = [
+    'Look at the stars!',
+    'Look at their shine for you',
+    'Everything you do',
+    "It's all yellow",
+  ]
+
+  React.useEffect(() => {
+    console.log(selected)
+  }, [selected])
+
+  const handleChange = e => {
+    selected.find(item => item === e.target.value)
+      ? setSelected(selected.filter(item => item !== e.target.value))
+      : setSelected(selected.concat(e.target.value))
+  }
+  return (
+    <StoryPreview>
+      {items.map(item => (
+        <Checkbox key={`sdsdsasds${item}`} id={item} value={item} onChange={handleChange}>
+          <Checkmark />
+          <Checklabel>{item}</Checklabel>
+        </Checkbox>
+      ))}
+    </StoryPreview>
+  )
+}
+
+// allProps.story = {
+//   name: 'all props',
+//   info: {
+//     inline: true,
+//     propTables: [Checkbox, Checkmark, Checklabel],
+//     propTablesExclude: [StoryPreview, Box],
+//   },
+// }
+
+storiesOf('Checkbox', module)
   .addDecorator(
     withInfo({
       inline: true,
@@ -22,13 +60,4 @@ storiesOf('Container', module)
       propTablesExclude: [StoryPreview, Box],
     })
   )
-  .add('default', () => (
-    <StoryPreview>
-      {items.map(item => (
-        <Checkbox id="item">
-          <Checkmark />
-          <Checklabel>{item}</Checklabel>
-        </Checkbox>
-      ))}
-    </StoryPreview>
-  ))
+  .add('default', allProps)
