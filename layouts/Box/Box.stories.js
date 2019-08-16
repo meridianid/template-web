@@ -12,6 +12,7 @@ import Box, { BoxNoModifier as BoxComponent } from './Box'
 import { directions } from '../../components/__private/withDirectionProps'
 import { alignes } from '../../components/__private/withAlignProps'
 import { justifys } from '../../components/__private/withJustifyProps'
+import StoryPreview from '../../utils/StoryPreview'
 
 const BoxItemForStorybookOnly = props => {
   return (
@@ -36,11 +37,11 @@ storiesOf('Box', module)
     withInfo({
       inline: true,
       propTables: [BoxComponent],
-      propTablesExclude: [Box, BoxItemForStorybookOnly],
+      propTablesExclude: [Box, BoxItemForStorybookOnly, StoryPreview],
     })
   )
   .add('default', () => (
-    <div style={{ padding: '40px', backgroundColor: '#e4e5e6', height: 360 }}>
+    <StoryPreview additional={{ height: 360 }}>
       <Box
         style={{ width: '100%', height: '100%' }}
         as="main"
@@ -53,5 +54,5 @@ storiesOf('Box', module)
         <BoxItemForStorybookOnly bg="hotpink">4</BoxItemForStorybookOnly>
         <BoxItemForStorybookOnly bg="skyblue">5</BoxItemForStorybookOnly>
       </Box>
-    </div>
+    </StoryPreview>
   ))
