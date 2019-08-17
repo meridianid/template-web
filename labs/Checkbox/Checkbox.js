@@ -7,7 +7,7 @@ import { string, bool, node } from 'prop-types'
 
 const CheckboxContext = React.createContext()
 
-const Checklabel = ({ children, id, className, error, ...restProps }) => {
+const Checklabel = ({ children, id, isDisabled, className, error, ...restProps }) => {
   let context = useContext(CheckboxContext)
   return (
     <Text
@@ -17,6 +17,7 @@ const Checklabel = ({ children, id, className, error, ...restProps }) => {
       className={cx({
         [styles.label]: true,
         [styles.error]: context.error || error,
+        [styles.disabledLabel]: context.isDisabled || isDisabled,
         [className]: className,
       })}
       {...restProps}>
@@ -29,7 +30,7 @@ const Checkmark = ({
   id,
   name,
   checked,
-  disabled,
+  isDisabled,
   small,
   large,
   className,
@@ -50,10 +51,11 @@ const Checkmark = ({
         [styles.small]: small,
         [styles.large]: large,
         [styles.error]: context.error || error,
+        [styles.disabledMark]: context.isDisabled || isDisabled,
       })}
       value={context.value || value}
       checked={context.checked || checked}
-      disabled={context.disabled || disabled}
+      disabled={context.isDisabled || isDisabled}
       onChange={context.onChange || onChange}
       {...restProps}
     />
@@ -67,7 +69,7 @@ const Checkbox = ({
   checked,
   onChange,
   error,
-  disabled,
+  isDisabled,
   id,
   children,
   ...restProps
@@ -79,16 +81,17 @@ const Checkbox = ({
         name,
         value,
         error,
-        disabled,
+        isDisabled,
         checked,
         onChange,
       }}>
       <Box
         role="group"
         className={cx({
+          [styles.disabled]: isDisabled,
           [className]: className,
         })}
-        disabled={disabled}
+        disabled={isDisabled}
         {...restProps}>
         {children}
       </Box>
@@ -102,7 +105,7 @@ Checkbox.propTypes = {
   id: string.isRequired,
   value: string.isRequired,
   error: bool,
-  disabled: bool,
+  isDisabled: bool,
   checked: bool,
 }
 

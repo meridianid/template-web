@@ -12,6 +12,25 @@
   &:checked {
     border-color: $brand-primary-200;
     transition: all 0.28s;
+
+    &::after {
+      position: absolute;
+      content: ' ';
+      border: solid $light-alpha-100;
+      transform: rotate(45deg);
+      border-width: 0 2px 2px 0;
+    }
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      background-color: $brand-primary-200;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 0.28s;
+    }
   }
 
   &:hover {
@@ -19,23 +38,11 @@
     transition: all 0.28s;
   }
 
-  &:checked::after {
-    position: absolute;
-    content: ' ';
-    border: solid $light-alpha-100;
-    transform: rotate(45deg);
-    border-width: 0 2px 2px 0;
-  }
-
-  &:checked::before {
-    content: ' ';
-    position: absolute;
-    background-color: $brand-primary-200;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: all 0.28s;
+  &.disabledMark {
+    border-color: $dark-alpha-30;
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 
@@ -80,4 +87,11 @@
     height: 12px;
     transition: all 0.28s;
   }
+}
+
+.disabled {
+}
+
+.disabledLabel {
+  opacity: 0.44;
 }

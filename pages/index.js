@@ -8,6 +8,7 @@ import ScrollAlt from '../labs/ScrollAlt/ScrollAlt'
 import TableView from '../labs/TableView/TableView'
 import Scroll from '../labs/Scroll/Scroll'
 import CheckboxPage from '../labs/CheckboxPage/CheckboxPage'
+import RadioPage from '../labs/RadioPage/RadioPage'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
@@ -15,6 +16,7 @@ const HomePage = ({ className, ...restProps }) => {
       <Intro />
       <TableView />
       <CheckboxPage />
+      <RadioPage />
       <Scroll />
       <ScrollAlt />
       <WhoWeAre />

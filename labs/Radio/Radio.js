@@ -1,62 +1,85 @@
 import styles from './Radio.module.scss'
-import React, { Component } from 'react'
-import classnames from 'classnames'
+import React, { useEffect, useState, useContext } from 'react'
+import cx from 'classnames'
+import Text from '../../components/Text/Text'
+import Box from '../../layouts/Box/Box'
 
-import Text from '../../Text/Text'
+const RadioContext = React.createContext()
+const RadioGroupContext = React.createContext()
 
-class Radio extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      focus: this.props.focus,
-      value: this.props.value,
-    }
-  }
+const Radiolabel = ({ id, children, className, isDisabled, ...restProps }) => {
+  const context = useContext(RadioContext)
 
-  onBlur = () => {
-    this.setState({
-      ...this.state,
-      focus: false,
-    })
-  }
-
-  onChange = e => {
-    this.setState({
-      ...this.state,
-      value: e.target.value,
-    })
-  }
-
-  render() {
-    let { id, name, className, checked, label, onChange, onClick, onFocus, ...restProps } = this.props
-    return (
-      <div className={classnames(styles.root, className)} {...restProps}>
-        <input
-          className={classnames({
-            [styles.input]: true,
-            [styles.focus]: this.state.focus,
-          })}
-          id={id}
-          name={name}
-          type="radio"
-          checked={checked === this.state.value}
-          onChange={this.onChange}
-        />
-        <label
-          className={classnames({
-            [styles.label]: true,
-          })}
-          onClick={() => console.log(this.state.value)}
-          onFocus={onFocus}
-          onBlur={this.onBlur}
-          htmlFor={id}>
-          <Text className={styles.text} heading5>
-            {label}
-          </Text>
-        </label>
-      </div>
-    )
-  }
+  return (
+    <Text
+      htmlFor={id || context.id}
+      as="label"
+      className={cx({
+        [styles.label]: true,
+        [styles.disabledLabel]: isDisabled || context.isDisabled,
+        [className]: className,
+      })}
+      heading5
+      {...restProps}>
+      {children}
+    </Text>
+  )
 }
 
-export default Radio
+const Radiomark = ({
+  className,
+  isDisabled,
+  isChecked,
+  value,
+  id,
+  name,
+  small,
+  large,
+  onChange,
+  onClick,
+  ...restProps
+}) => {
+  const groupContext = useContext(RadioGroupContext)
+  const context = useContext(RadioContext)
+
+  return (
+    <input
+      type="radio"
+      id={id || context.id}
+      name={name || groupContext.name}
+      value={value || context.value}
+      disabled={isDisabled || context.isDisabled}
+      checked={isChecked || context.isChecked}
+      className={cx({
+        [styles.normal]: !large && !small,
+        [styles.small]: small,
+        [styles.large]: large,
+        [styles.disabledMark]: isDisabled || context.isDisabled,
+        [className]: className,
+      })}
+      {...restProps}
+    />
+  )
+}
+
+const Radio = ({ children, isDisabled, value, name, isChecked, id, className, ...restProps }) => {
+  return (
+    <RadioContext.Provider value={{ isDisabled, isChecked, value, id }}>
+      <Box className={cx({ [className]: className })} {...restProps}>
+        {children}
+      </Box>
+    </RadioContext.Provider>
+  )
+}
+
+const RadioGroup = ({ className, id, selected, name, children, ...restProps }) => {
+  return (
+    <RadioGroupContext.Provider value={{ name, id }}>
+      <Box className={cx({ [className]: className })} {...restProps}>
+        {children}
+      </Box>
+    </RadioGroupContext.Provider>
+  )
+}
+
+export { RadioGroup, Radio, Radiomark, Radiolabel }

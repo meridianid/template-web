@@ -52,6 +52,7 @@ const CheckboxPage = ({ children, className, ...restProps }) => {
                     : setSelected(selected.concat(e.target.value))
                 }
                 inline
+                isDisabled={people.id === 'ashdqwuwyueyyuusd'}
                 justifyBetween
                 style={{ marginBottom: 24 }}
                 value={people.value}>
