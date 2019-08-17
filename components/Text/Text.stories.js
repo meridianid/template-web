@@ -8,23 +8,26 @@ import './../../assets/fonts/fonts'
 import './../../base.scss'
 
 import Text, { TextNoModifier as TextComponent } from './Text'
-import { sizes } from '../__private/withTextProps'
+import { SizePropTypes } from '../__private/withTextProps'
 import { modifiers } from '../__private/withTextModifierProps'
+import StoryPreview from '../../utils/StoryPreview'
+import { TableComponent } from '../../labs/TableComponent/TableComponent'
 
 storiesOf('Text', module)
   .addDecorator(
     withInfo({
       inline: true,
       propTables: [TextComponent],
-      propTablesExclude: [Text],
+      TableComponent: TableComponent,
+      propTablesExclude: [Text, StoryPreview],
     })
   )
   .add('All props', () => (
-    <div style={{ padding: '40px', backgroundColor: '#e4e5e6' }}>
+    <StoryPreview dark>
       <Text
         as={'h2'}
         align={select('align', ['left', 'right', 'center', 'justify'], 'left')}
-        size={select('size', sizes, 'heading1')}
+        size={select('size', SizePropTypes, 'heading1')}
         truncate={boolean('truncate', false)}
         breakWord={boolean('breakWord', false)}
         light={boolean('light', false)}
@@ -32,5 +35,5 @@ storiesOf('Text', module)
         modifier={select('modifier', modifiers, false)}>
         The reward for work well done is the opportunity to do more.
       </Text>
-    </div>
+    </StoryPreview>
   ))

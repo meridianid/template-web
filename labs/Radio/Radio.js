@@ -3,11 +3,12 @@ import React, { useEffect, useState, useContext } from 'react'
 import cx from 'classnames'
 import Text from '../../components/Text/Text'
 import Box from '../../layouts/Box/Box'
+import { bool, node, string } from 'prop-types'
 
 const RadioContext = React.createContext()
 const RadioGroupContext = React.createContext()
 
-const Radiolabel = ({ id, children, className, isDisabled, ...restProps }) => {
+const Radiolabel = ({ id, children, className, isDisabled, classDisabled, ...restProps }) => {
   const context = useContext(RadioContext)
 
   return (
@@ -18,12 +19,30 @@ const Radiolabel = ({ id, children, className, isDisabled, ...restProps }) => {
         [styles.label]: true,
         [styles.disabledLabel]: isDisabled || context.isDisabled,
         [className]: className,
+        [classDisabled]: isDisabled && classDisabled,
       })}
       heading5
       {...restProps}>
       {children}
     </Text>
   )
+}
+
+Radiolabel.displayName = 'Radiolabel'
+
+Radiolabel.defaultProps = {}
+
+Radiolabel.propTypes = {
+  /**
+   * Supplied from <Radio/> by default
+   */
+  id: string,
+  /**
+   * Add your own custom class for disabled state
+   */
+  classDisabled: string,
+  className: string,
+  children: node.isRequired,
 }
 
 const Radiomark = ({
@@ -54,12 +73,20 @@ const Radiomark = ({
         [styles.normal]: !large && !small,
         [styles.small]: small,
         [styles.large]: large,
-        [styles.disabledMark]: isDisabled || context.isDisabled,
+        [styles.markDisabled]: isDisabled || context.isDisabled,
         [className]: className,
       })}
       {...restProps}
     />
   )
+}
+
+Radiomark.displayName = 'Radiomark'
+
+Radiomark.propTypes = {
+  small: bool,
+  large: bool,
+  isDisabled: bool,
 }
 
 const Radio = ({ children, isDisabled, value, name, isChecked, id, className, ...restProps }) => {
@@ -72,6 +99,12 @@ const Radio = ({ children, isDisabled, value, name, isChecked, id, className, ..
   )
 }
 
+Radio.displayName = 'Radio'
+
+Radio.propTypes = {
+  children: node.isRequired,
+}
+
 const RadioGroup = ({ className, id, selected, name, children, ...restProps }) => {
   return (
     <RadioGroupContext.Provider value={{ name, id }}>
@@ -80,6 +113,12 @@ const RadioGroup = ({ className, id, selected, name, children, ...restProps }) =
       </Box>
     </RadioGroupContext.Provider>
   )
+}
+
+RadioGroup.displayName = 'RadioGroup'
+
+RadioGroup.propTypes = {
+  children: node.isRequired,
 }
 
 export { RadioGroup, Radio, Radiomark, Radiolabel }

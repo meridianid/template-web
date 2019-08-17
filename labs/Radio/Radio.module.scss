@@ -5,7 +5,7 @@
   position: relative;
   appearance: none;
   -webkit-appearance: none;
-  background: $light-alpha-100;
+  // background: $light-alpha-100;
   border: 1px solid $dark-alpha-30;
   border-radius: 999px;
   outline: none;
@@ -27,12 +27,20 @@
   }
 
   &:hover::after {
-    background-color: rgba(235, 235, 235, 1);
+    background-color: $dark-alpha-30;
     transition: all 0.28s;
   }
   &:checked::after {
     background-color: $brand-primary-200;
     transition: all 0.28s;
+  }
+
+  &.markDisabled {
+    border-color: $dark-alpha-20;
+    &:hover::after {
+      background-color: $dark-alpha-20;
+      transition: all 0.28s;
+    }
   }
 }
 
@@ -54,6 +62,7 @@
 
 .normal {
   composes: mark;
+  margin-top: 1px;
   width: 18px;
   height: 18px;
   min-width: 18px;
@@ -95,7 +104,4 @@
 }
 
 .labelDisabled {
-}
-
-.markDisabled {
 }

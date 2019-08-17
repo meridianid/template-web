@@ -1,7 +1,7 @@
 import styles from './Box.module.scss'
 import React from 'react'
 import classnames from 'classnames'
-import { oneOf } from 'prop-types'
+import { oneOf, node, string } from 'prop-types'
 
 import withDirectionProps from '../../components/__private/withDirectionProps'
 import withJustifyProps from '../../components/__private/withJustifyProps'
@@ -49,7 +49,15 @@ BoxNoModifier.defaultProps = {
 }
 
 BoxNoModifier.propTypes = {
+  children: node.isRequired,
+  className: string,
+  /**
+   * Use directly as props
+   */
   direction: oneOf(['row', 'rowReverse', 'column', 'columnReverse']),
+  /**
+   * Use directly as props
+   */
   justify: oneOf([
     'justifyStart',
     'justifyEnd',
@@ -58,6 +66,9 @@ BoxNoModifier.propTypes = {
     'justifyBetween',
     'justifyEvenly',
   ]),
+  /**
+   * Use directly as props
+   */
   align: oneOf(['alignStart', 'alignEnd', 'alignCenter', 'alignStretch', 'alignBaseline']),
 }
 

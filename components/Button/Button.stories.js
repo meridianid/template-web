@@ -10,12 +10,14 @@ import './../../base.scss'
 import Button, { NoModifierButton as UndecoratedButton } from './Button'
 import { types } from '../__private/withTypeProps'
 import { sizes } from '../__private/withSizeProps'
+import { TableComponent } from '../../labs/TableComponent/TableComponent'
 
 storiesOf('Button', module)
   .addDecorator(
     withInfo({
       inline: true,
       propTables: [UndecoratedButton],
+      TableComponent: TableComponent,
       propTablesExclude: [Button],
     })
   )

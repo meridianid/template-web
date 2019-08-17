@@ -1,6 +1,6 @@
 import styles from './Text.module.scss'
 import React from 'react'
-import { bool, node, object, string, oneOf, oneOfType } from 'prop-types'
+import { bool, node, object, string, oneOf, oneOfType, shape } from 'prop-types'
 import classnames from 'classnames'
 import withTextProps, { sizes } from '../__private/withTextProps'
 import withTextModifierProps, { modifiers } from '../__private/withTextModifierProps'
@@ -32,9 +32,9 @@ export const TextNoModifier = ({
   as,
   children,
   className,
+
   size,
   modifier,
-
   align,
 
   strong,
@@ -84,30 +84,62 @@ TextNoModifier.defaultProps = {
 }
 
 TextNoModifier.propTypes = {
+  children: node.isRequired,
   /** Rendering the component as specific html tag */
   as: string,
   /**
    * Additional className for Text component
    */
   className: oneOfType([string, object]),
-  /** Boolean indicating whether the Text should truncate with ellipsis when overflow */
+  /** Indicating whether the Text should truncate with ellipsis when overflow */
   truncate: bool,
-  /** Boolean indicating whether the Text should move to new line and break word when overflow */
+  /** Indicating whether the Text should move to new line and break word when overflow */
   breakWord: bool,
   /**
    * Alignment of text
+   * Use directly as a prop
    */
   align: oneOf(['left', 'right', 'center', 'justify']),
   /**
    * Size of text
-   * You can use it directly as a prop
+   * Use directly as a prop
    */
-  size: oneOf(sizes),
+  size: oneOf([
+    'display1',
+    'display2',
+    'display3',
+
+    'heading1',
+    'heading2',
+    'heading3',
+    'heading4',
+    'heading5',
+    'heading6',
+
+    'small',
+    'medium',
+    'large',
+
+    'label',
+    'labelSmall',
+
+    'caption',
+  ]),
+  // size: oneOf([...modifiedSizes]),
   /**
    * Modifiers of text styles
-   * You can use it directly as a prop
+   * Use directly as a prop
    */
-  modifier: oneOf(modifiers),
+  modifier: oneOf([
+    'link',
+    'positive',
+    'critical',
+    'secondary',
+    'highlight',
+    'info',
+    'white',
+    'whiteSecondary',
+  ]),
 
   /**
    * Apply designated strong font-weight to text
@@ -121,7 +153,6 @@ TextNoModifier.propTypes = {
    * Apply designated light font-weight to text
    */
   light: bool,
-  children: node.isRequired,
 }
 
 const Text = withTextProps(withTextModifierProps(TextNoModifier))

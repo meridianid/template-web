@@ -1,9 +1,5 @@
 @import 'src/tokens';
 
-.root {
-  font-family: $font-primary;
-}
-
 // Display Text
 .display1 {
   @include rf($display-2, $display-1);
@@ -27,42 +23,36 @@
 
 // Heading Text
 .heading1 {
-  composes: root;
   @include rf($heading-2, $heading-1);
   line-height: 52px;
   letter-spacing: -1.44px;
   font-weight: $bold;
 }
 .heading2 {
-  composes: root;
   @include rf($heading-3, $heading-2);
   line-height: 36px;
   letter-spacing: -1.2px;
   font-weight: $bold;
 }
 .heading3 {
-  composes: root;
   @include rf(20px, $heading-3);
   line-height: 30px;
   letter-spacing: -0.48px;
   font-weight: $bold;
 }
 .heading4 {
-  composes: root;
   font-size: $heading-4;
   line-height: 26px;
   letter-spacing: -0.48px;
   font-weight: $medium;
 }
 .heading5 {
-  composes: root;
   font-size: $heading-5;
   line-height: 22px;
   letter-spacing: -0.24px;
   font-weight: $medium;
 }
 .heading6 {
-  composes: root;
   font-size: $heading-6;
   line-height: 18px;
   letter-spacing: -0.24px;
@@ -71,19 +61,16 @@
 
 // Body Text
 .large {
-  composes: root;
   font-size: $body-3;
   line-height: 26px;
   font-weight: $regular;
 }
 .medium {
-  composes: root;
   font-size: $body-2;
   line-height: 22px;
   font-weight: $regular;
 }
 .small {
-  composes: root;
   font-size: $body-1;
   line-height: 18px;
   font-weight: $regular;
@@ -91,7 +78,6 @@
 
 // Caption
 .caption {
-  composes: root;
   font-size: $caption-1;
   font-weight: $regular;
   line-height: 16px;
@@ -99,7 +85,6 @@
 
 // Label
 .label {
-  composes: root;
   font-size: $heading-5;
   line-height: 22px;
   color: $dark-alpha-70;
@@ -107,7 +92,6 @@
   margin: $space-stack-s;
 }
 .labelSmall {
-  composes: root;
   font-size: $heading-6;
   line-height: 18px;
   color: $dark-alpha-70;

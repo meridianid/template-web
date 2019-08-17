@@ -6,11 +6,11 @@ import { boolean, select } from '@storybook/addon-knobs'
 
 import '../../assets/fonts/fonts'
 import './../../base.scss'
-import './../../styles/invoker-base/storybook.base.css'
 
 import Box from '../../layouts/Box/Box'
 import { Checkbox, Checkmark, Checklabel } from './Checkbox'
 import StoryPreview from '../../utils/StoryPreview'
+import { TableComponent } from '../TableComponent/TableComponent'
 
 const allProps = () => {
   const [selected, setSelected] = useState([])
@@ -47,6 +47,7 @@ storiesOf('Checkbox', module)
   .addDecorator(
     withInfo({
       inline: true,
+      TableComponent: TableComponent,
       propTables: [Checkbox, Checkmark, Checklabel],
       propTablesExclude: [StoryPreview, Box],
     })

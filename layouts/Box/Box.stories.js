@@ -6,13 +6,14 @@ import { boolean, select } from '@storybook/addon-knobs'
 
 import '../../assets/fonts/fonts'
 import './../../base.scss'
-import './../../styles/invoker-base/storybook.base.css'
+// import './../../styles/invoker-base/storybook.base.css'
 
 import Box, { BoxNoModifier as BoxComponent } from './Box'
 import { directions } from '../../components/__private/withDirectionProps'
 import { alignes } from '../../components/__private/withAlignProps'
 import { justifys } from '../../components/__private/withJustifyProps'
 import StoryPreview from '../../utils/StoryPreview'
+import { TableComponent } from '../../labs/TableComponent/TableComponent'
 
 const BoxItemForStorybookOnly = props => {
   return (
@@ -37,6 +38,7 @@ storiesOf('Box', module)
     withInfo({
       inline: true,
       propTables: [BoxComponent],
+      TableComponent: TableComponent,
       propTablesExclude: [Box, BoxItemForStorybookOnly, StoryPreview],
     })
   )

@@ -6,11 +6,11 @@ import { boolean, select } from '@storybook/addon-knobs'
 
 import '../../assets/fonts/fonts'
 import './../../base.scss'
-import './../../styles/invoker-base/storybook.base.css'
 
 import Box from '../../layouts/Box/Box'
 import { RadioGroup, Radio, Radiolabel, Radiomark } from './Radio'
 import StoryPreview from '../../utils/StoryPreview'
+import { TableComponent } from '../TableComponent/TableComponent'
 
 const allProps = () => {
   const [selected, setSelected] = useState([])
@@ -45,10 +45,15 @@ const allProps = () => {
   }
   return (
     <StoryPreview>
-      <RadioGroup name="person">
+      <RadioGroup name="person" column>
         {teams.map(person => (
-          <Radio key={person.id} id={person.id}>
-            <Radiomark />
+          <Radio
+            key={person.id}
+            id={person.id}
+            isDisabled={person.id === 'jbbuububu'}
+            justifyBetween
+            style={{ paddingTop: 12, paddingBottom: 12 }}>
+            <Radiomark style={{ marginRight: 12 }} large />
             <Radiolabel>{person.value}</Radiolabel>
           </Radio>
         ))}
@@ -61,6 +66,7 @@ storiesOf('Radio', module)
   .addDecorator(
     withInfo({
       inline: true,
+      TableComponent: TableComponent,
       propTables: [RadioGroup, Radio, Radiomark, Radiolabel],
       propTablesExclude: [StoryPreview, Box],
     })
