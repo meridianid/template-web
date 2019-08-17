@@ -43,15 +43,6 @@ const allProps = () => {
   )
 }
 
-// allProps.story = {
-//   name: 'all props',
-//   info: {
-//     inline: true,
-//     propTables: [Checkbox, Checkmark, Checklabel],
-//     propTablesExclude: [StoryPreview, Box],
-//   },
-// }
-
 storiesOf('Checkbox', module)
   .addDecorator(
     withInfo({
