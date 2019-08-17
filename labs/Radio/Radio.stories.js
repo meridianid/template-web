@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { storiesOf, setAddon } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withInfo } from '@storybook/addon-info'
@@ -9,26 +9,60 @@ import './../../base.scss'
 import './../../styles/invoker-base/storybook.base.css'
 
 import Box from '../../layouts/Box/Box'
-import { Checkbox, Checkmark, Checklabel } from './Checkbox'
+import { RadioGroup, Radio, Radiolabel, Radiomark } from './Radio'
 import StoryPreview from '../../utils/StoryPreview'
 
-const items = ['Look at the stars!', 'Look at their shine for you', 'Everything you do', "It's all yellow"]
+const allProps = () => {
+  const [selected, setSelected] = useState([])
 
-storiesOf('Container', module)
+  const teams = [
+    {
+      value: 'Ongki Herlambang',
+      id: 'asdhsjd',
+    },
+    {
+      value: 'Khairani Ummah',
+      id: 'qwew',
+    },
+    {
+      value: 'Husni Munaya',
+      id: 'jkji232dwdwd',
+    },
+    {
+      value: 'Hanifan Mohammad',
+      id: 'jbbuububu',
+    },
+  ]
+
+  React.useEffect(() => {
+    console.log(selected)
+  }, [selected])
+
+  const handleChange = e => {
+    selected.find(item => item === e.target.value)
+      ? setSelected(selected.filter(item => item !== e.target.value))
+      : setSelected(selected.concat(e.target.value))
+  }
+  return (
+    <StoryPreview>
+      <RadioGroup name="person">
+        {teams.map(person => (
+          <Radio key={person.id} id={person.id}>
+            <Radiomark />
+            <Radiolabel>{person.value}</Radiolabel>
+          </Radio>
+        ))}
+      </RadioGroup>
+    </StoryPreview>
+  )
+}
+
+storiesOf('Radio', module)
   .addDecorator(
     withInfo({
       inline: true,
-      propTables: [Checkbox, Checkmark, Checklabel],
+      propTables: [RadioGroup, Radio, Radiomark, Radiolabel],
       propTablesExclude: [StoryPreview, Box],
     })
   )
-  .add('default', () => (
-    <StoryPreview>
-      {items.map(item => (
-        <Checkbox id="item">
-          <Checkmark />
-          <Checklabel>{item}</Checklabel>
-        </Checkbox>
-      ))}
-    </StoryPreview>
-  ))
+  .add('default', allProps)
