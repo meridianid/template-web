@@ -46,7 +46,6 @@ const Checkmark = ({
       name={context.name || name}
       type="checkbox"
       className={cx({
-        [styles.input]: true,
         [styles.normal]: !small && !large,
         [styles.small]: small,
         [styles.large]: large,

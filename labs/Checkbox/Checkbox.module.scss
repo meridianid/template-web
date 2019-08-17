@@ -4,6 +4,7 @@
   cursor: pointer;
   position: relative;
   appearance: none;
+  -webkit-appearance: none;
   border: 1px solid;
   border-color: $dark-alpha-40;
   border-radius: 3px;
@@ -47,6 +48,7 @@
 }
 
 .small {
+  composes: input;
   min-width: 14px;
   min-height: 14px;
   width: 14px;
@@ -62,6 +64,7 @@
 }
 
 .normal {
+  composes: input;
   height: 18px;
   width: 18px;
   min-height: 18px;
@@ -76,6 +79,7 @@
 }
 
 .large {
+  composes: input;
   height: 22px;
   width: 22px;
   min-height: 22px;
