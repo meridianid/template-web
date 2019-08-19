@@ -1,5 +1,5 @@
 // Timings
 export const transition = {
-  transitionEnter: '200ms',
-  transitionLeave: '500ms',
+  transitionEnter: '280ms',
+  transitionLeave: '360ms',
 }

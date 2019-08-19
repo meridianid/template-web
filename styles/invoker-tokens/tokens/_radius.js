@@ -8,7 +8,7 @@ let s = 6
 let m = 8
 let l = 12
 let xxl = 9999
-let rounded = 9999999
+let circle = 9999999
 
 export const radius = {
   xxs,
@@ -17,7 +17,7 @@ export const radius = {
   m,
   l,
   xxl,
-  rounded,
+  circle,
 
   // bottom: {
   //   xxs: `0 0 ${xxs} ${xxs}`,

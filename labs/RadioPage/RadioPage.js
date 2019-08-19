@@ -36,13 +36,14 @@ const RadioPage = ({ className, ...restProps }) => {
               key={item.id}
               id={item.id}
               style={{
-                paddingTop: tokens.spaces.sm,
-                paddingBottom: tokens.spaces.sm,
-                maxWidth: tokens.breakpoints.min.$480,
+                paddingTop: tokens.spaces.ml,
+                paddingBottom: tokens.spaces.ml,
+                maxWidth: tokens.breakpoints.min480,
+                borderBottom: tokens.border.dashedPrimary3,
               }}>
-              <Radiomark small id={item.id} style={{ marginRight: tokens.spaces.sm }} />
+              <Radiomark large id={item.id} style={{ marginRight: tokens.spaces.sm }} />
               <Radiolabel>
-                <p style={{ color: tokens.dark.alpha.primary }}>
+                <p style={{ color: tokens.dark.alphaprimary }}>
                   {item.value} qhgd h Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a
                   est nobis iste, tenetur quasi at quibusdam quas velit obcaecati, reprehenderit autem
                   adipisci? Accusamus odio voluptatum tenetur necessitatibus beatae atque? ⭐⭐⭐⭐⭐

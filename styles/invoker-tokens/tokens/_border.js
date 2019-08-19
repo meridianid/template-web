@@ -4,57 +4,37 @@ import { brand, dark } from './_colors'
   Border tokens
 */
 export const style = {
-  solid: {
-    $1: `1px solid`,
-    $2: `2px solid`,
-    $3: `3px solid`,
-  },
-  dashed: {
-    $1: `1px dashed`,
-    $2: `2px dashed`,
-    $3: `3px dashed`,
-  },
+  solid1: `1px solid`,
+  solid2: `2px solid`,
+  solid3: `3px solid`,
+  dashed1: `1px dashed`,
+  dashed2: `2px dashed`,
+  dashed3: `3px dashed`,
 }
 
 export const color = {
-  base: dark.alpha.$20,
-  primary: brand.primary.$200,
-  secondary: brand.secondary.$200,
+  base: dark.alpha20,
+  primary: brand.primary200,
+  secondary: brand.secondary100,
 }
 
 export const border = {
-  solid: {
-    base: {
-      $1: `${style.solid.$1} ${color.base}`,
-      $2: `${style.solid.$2} ${color.base}`,
-      $3: `${style.solid.$3} ${color.base}`,
-    },
-    primary: {
-      $1: `${style.solid.$1} ${color.primary}`,
-      $2: `${style.solid.$2} ${color.primary}`,
-      $3: `${style.solid.$3} ${color.primary}`,
-    },
-    secondary: {
-      $1: `${style.solid.$1} ${color.secondary}`,
-      $2: `${style.solid.$2} ${color.secondary}`,
-      $3: `${style.solid.$3} ${color.secondary}`,
-    },
-  },
-  dashed: {
-    base: {
-      $1: `${style.dashed.$1} ${color.base}`,
-      $2: `${style.dashed.$2} ${color.base}`,
-      $3: `${style.dashed.$3} ${color.base}`,
-    },
-    primary: {
-      $1: `${style.dashed.$1} ${color.primary}`,
-      $2: `${style.dashed.$2} ${color.primary}`,
-      $3: `${style.dashed.$3} ${color.primary}`,
-    },
-    secondary: {
-      $1: `${style.dashed.$1} ${color.secondary}`,
-      $2: `${style.dashed.$2} ${color.secondary}`,
-      $3: `${style.dashed.$3} ${color.secondary}`,
-    },
-  },
+  solidBase1: `${style.solid1} ${color.base}`,
+  solidBase2: `${style.solid2} ${color.base}`,
+  solidBase3: `${style.solid3} ${color.base}`,
+  solidPrimary1: `${style.solid1} ${color.primary}`,
+  solidPrimary2: `${style.solid2} ${color.primary}`,
+  solidPrimary3: `${style.solid3} ${color.primary}`,
+  solidSecondary1: `${style.solid1} ${color.secondary}`,
+  solidSecondary2: `${style.solid2} ${color.secondary}`,
+  solidSecondary3: `${style.solid3} ${color.secondary}`,
+  dashedBase1: `${style.dashed1} ${color.base}`,
+  dashedBase2: `${style.dashed2} ${color.base}`,
+  dashedBase3: `${style.dashed3} ${color.base}`,
+  dashedPrimary1: `${style.dashed1} ${color.primary}`,
+  dashedPrimary2: `${style.dashed2} ${color.primary}`,
+  dashedPrimary3: `${style.dashed3} ${color.primary}`,
+  dashedSecondary1: `${style.dashed1} ${color.secondary}`,
+  dashedSecondary2: `${style.dashed2} ${color.secondary}`,
+  dashedSecondary3: `${style.dashed3} ${color.secondary}`,
 }

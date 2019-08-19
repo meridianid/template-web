@@ -110,91 +110,106 @@ const sky = {
   $90: `rgba(38, 122, 188, .9)`,
 }
 
-// Dark
-export const dark = {
-  hex: {
-    primary: `#484848`,
-    secondary: `#767676`,
-    $90: `#0F0F0F`, // Heading
-    $80: `#292929`, // Heading and Body text in text-heavy page such as blog post
-    $70: `#484848`, // Body text
-    $60: `#767676`, // Caption and subtitle
-    $50: `#8F8F8F`,
-
-    $40: `#CCCCCC`,
-    $30: `#E0E0E0`,
-    $20: `#EBEBEB`,
-    $10: `#F5F5F5`,
-  },
-
-  alpha: {
-    primary: `rgba(0,0,0,.72)`,
-    secondary: `rgba(0,0,0,.54)`,
-    $90: `rgba(0,0,0,.94)`,
-    $80: `rgba(0,0,0,.84)`,
-    $70: `rgba(0,0,0,.72)`,
-    $60: `rgba(0,0,0,.54)`,
-    $50: `rgba(0,0,0,.44)`,
-    $40: `rgba(0,0,0,.20)`,
-    $30: `rgba(0,0,0,.12)`,
-    $20: `rgba(0,0,0,.08)`,
-    $10: `rgba(0,0,0,.04)`,
-  },
-}
-
-export const light = {
-  alpha: {
-    primary: `rgba(255,255,255,1)`,
-    secondary: `rgba(255,255,255,.71)`,
-    $100: `rgba(255,255,255,1)`,
-    $90: `rgba(255,255,255,.84)`,
-    $80: `rgba(255,255,255,.71)`,
-    $70: `rgba(255,255,255,.54)`,
-    $60: `rgba(255,255,255,.40)`,
-    $50: `rgba(255,255,255,.20)`,
-    $40: `rgba(255,255,255,.16)`,
-    $30: `rgba(255,255,255,.10)`,
-    $20: `rgba(255,255,255,.06)`,
-    $10: `rgba(255,255,255,.02)`,
-  },
-  hex: {
-    primary: `#ffffff`,
-    secondary: `#c0c0c0`,
-    $100: `#ffffff`,
-    $90: `#dcdcdc`,
-    $80: `#c0c0c0`,
-    $70: `#9c9c9c`,
-  },
-}
-
-// Background Colors
-// Only use this colors for background
-
-// Main Brand Colors
+/**
+ * Main Brand colors
+ */
 export const brand = {
-  primary: sea,
-  secondary: scarlet,
+  primary300: sea.$300,
+  primary200: sea.$200,
+  primary100: sea.$100,
+  primary90: sea.$90,
+  primary80: sea.$80,
+  primary70: sea.$70,
+  primary60: sea.$60,
+  primary50: sea.$50,
+  primary40: sea.$40,
+  primary30: sea.$30,
+  primary20: sea.$20,
+  primary10: sea.$10,
+
+  secondary300: scarlet.$300,
+  secondary200: scarlet.$200,
+  secondary100: scarlet.$100,
+  secondary90: scarlet.$90,
+  secondary80: scarlet.$80,
+  secondary70: scarlet.$70,
+  secondary60: scarlet.$60,
+  secondary50: scarlet.$50,
+  secondary40: scarlet.$40,
+  secondary30: scarlet.$30,
+  secondary20: scarlet.$20,
+  secondary10: scarlet.$10,
+}
+
+/**
+ * Dark colors
+ */
+export const dark = {
+  hexprimary: `#484848`,
+  hexsecondary: `#767676`,
+  hex90: `#0F0F0F`, // Heading
+  hex80: `#292929`, // Heading and Body text in text-heavy page such as blog post
+  hex70: `#484848`, // Body text
+  hex60: `#767676`, // Caption and subtitle
+  hex50: `#8F8F8F`,
+  hex40: `#CCCCCC`,
+  hex30: `#E0E0E0`,
+  hex20: `#EBEBEB`,
+  hex10: `#F5F5F5`,
+
+  alphaprimary: `rgba(0,0,0,.72)`,
+  alphasecondary: `rgba(0,0,0,.54)`,
+  alpha90: `rgba(0,0,0,.94)`,
+  alpha80: `rgba(0,0,0,.84)`,
+  alpha70: `rgba(0,0,0,.72)`,
+  alpha60: `rgba(0,0,0,.54)`,
+  alpha50: `rgba(0,0,0,.44)`,
+  alpha40: `rgba(0,0,0,.20)`,
+  alpha30: `rgba(0,0,0,.12)`,
+  alpha20: `rgba(0,0,0,.08)`,
+  alpha10: `rgba(0,0,0,.04)`,
+}
+
+/**
+ * Light colors
+ */
+export const light = {
+  alphaprimary: `rgba(255,255,255,1)`,
+  alphasecondary: `rgba(255,255,255,.71)`,
+  alpha100: `rgba(255,255,255,1)`,
+  alpha90: `rgba(255,255,255,.84)`,
+  alpha80: `rgba(255,255,255,.71)`,
+  alpha70: `rgba(255,255,255,.54)`,
+  alpha60: `rgba(255,255,255,.40)`,
+  alpha50: `rgba(255,255,255,.20)`,
+  alpha40: `rgba(255,255,255,.16)`,
+  alpha30: `rgba(255,255,255,.10)`,
+  alpha20: `rgba(255,255,255,.06)`,
+  alpha10: `rgba(255,255,255,.02)`,
+
+  hexprimary: `#ffffff`,
+  hexsecondary: `#c0c0c0`,
+  hex100: `#ffffff`,
+  hex90: `#dcdcdc`,
+  hex80: `#c0c0c0`,
+  hex70: `#9c9c9c`,
 }
 
 /**
  * Tone colors
  */
 export const tone = {
-  danger: {
-    $100: `#FF603F`, // Use for Danger Background or Large text
-    $200: `#E42700`, // Default for small text
-    $300: `#940D00`, // Hover, active, focus and tap
-  },
-  warning: {
-    $100: `#FFE380`,
-    $200: `#FFAB00`,
-    $300: `#FF8B00`,
-  },
-  success: {
-    $100: `#57D9A3`, // Use for success background
-    $200: `#00875A`, // Default for small text
-    $300: `#006644`, // Hover, active, focus and tap
-  },
+  danger100: `#FF603F`, // Use for Danger Background or Large text
+  danger200: `#E42700`, // Default for small text
+  danger300: `#940D00`, // Hover, active, focus and tap
+
+  warning100: `#FFE380`,
+  warning200: `#FFAB00`,
+  warning300: `#FF8B00`,
+
+  success100: `#57D9A3`, // Use for success background
+  success200: `#00875A`, // Default for small text
+  success300: `#006644`, // Hover, active, focus and tap
 }
 
 /**
