@@ -2,22 +2,21 @@
   Spaces tokens
 */
 
-let base = 16
-let rowHeight = 4
+const base = 16
+const rowHeight = 4
 
-let base = '1rem'
-let xxs = '0.125rem'
-let xs = '0.25rem'
-let s = '0.5rem'
-let sm = '0.75rem'
-let m = '1rem'
-let ml = '1.5rem'
-let l = '2rem'
-let ll = '3rem'
-let xl = '4rem'
-let xxl = '6rem'
+const xxs = '0.125rem'
+const xs = '0.25rem'
+const s = '0.5rem'
+const sm = '0.75rem'
+const m = '1rem'
+const ml = '1.5rem'
+const l = '2rem'
+const ll = '3rem'
+const xl = '4rem'
+const xxl = '6rem'
 
-let huge = '7rem'
+const huge = '7rem'
 
 export const spaces = {
   base,
@@ -45,7 +44,7 @@ export const inset = {
   l: `${l} ${l} ${l} ${l}`,
   ll: `${ll} ${ll} ${ll} ${ll}`,
   xl: `${xl} ${xl} ${xl} ${xl}`,
-},
+}
 
 export const stack = {
   base: `0 0 ${m} 0`,
@@ -74,7 +73,7 @@ export const inline = {
   xl: `0 ${xl} 0 0`,
 }
 
-export const vertical =  {
+export const vertical = {
   base: `${sm} 0 ${sm} 0`,
   xs: `${xs} 0 ${xs} 0`,
   s: `${s} 0 ${s} 0`,
@@ -117,4 +116,3 @@ export const stretch = {
   ml: `${l} ${ml} ${l} ${ml}`,
   l: `${xl} ${l} ${xl} ${l}`,
 }
-

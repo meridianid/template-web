@@ -19,7 +19,7 @@ export const style = {
 export const color = {
   base: dark.alpha.$20,
   primary: brand.primary.$200,
-  secondary: $brand.secondary.$200,
+  secondary: brand.secondary.$200,
 }
 
 export const border = {

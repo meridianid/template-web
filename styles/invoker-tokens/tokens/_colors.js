@@ -113,6 +113,8 @@ const sky = {
 // Dark
 export const dark = {
   hex: {
+    primary: `#484848`,
+    secondary: `#767676`,
     $90: `#0F0F0F`, // Heading
     $80: `#292929`, // Heading and Body text in text-heavy page such as blog post
     $70: `#484848`, // Body text
@@ -126,6 +128,8 @@ export const dark = {
   },
 
   alpha: {
+    primary: `rgba(0,0,0,.72)`,
+    secondary: `rgba(0,0,0,.54)`,
     $90: `rgba(0,0,0,.94)`,
     $80: `rgba(0,0,0,.84)`,
     $70: `rgba(0,0,0,.72)`,
@@ -140,6 +144,8 @@ export const dark = {
 
 export const light = {
   alpha: {
+    primary: `rgba(255,255,255,1)`,
+    secondary: `rgba(255,255,255,.71)`,
     $100: `rgba(255,255,255,1)`,
     $90: `rgba(255,255,255,.84)`,
     $80: `rgba(255,255,255,.71)`,
@@ -152,6 +158,8 @@ export const light = {
     $10: `rgba(255,255,255,.02)`,
   },
   hex: {
+    primary: `#ffffff`,
+    secondary: `#c0c0c0`,
     $100: `#ffffff`,
     $90: `#dcdcdc`,
     $80: `#c0c0c0`,
