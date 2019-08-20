@@ -1,7 +1,7 @@
 import styles from './Radio.module.scss'
 import React, { useEffect, useState, useContext } from 'react'
 import cx from 'classnames'
-import Text from '../../components/Text/Text'
+import Text from '../Text/Text'
 import Box from '../../layouts/Box/Box'
 import { bool, node, string } from 'prop-types'
 

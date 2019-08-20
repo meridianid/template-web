@@ -2,7 +2,7 @@ import styles from './RadioPage.module.scss'
 import React from 'react'
 import cx from 'classnames'
 
-import { RadioGroup, Radio, Radiolabel, Radiomark } from './../Radio/Radio'
+import { RadioGroup, Radio, Radiolabel, Radiomark } from '../../components/Radio/Radio'
 import Container from '../../layouts/Container/Container'
 import Section from '../../layouts/Section/Section'
 import * as tokens from '../../styles/invoker-tokens/index'

@@ -1,7 +1,7 @@
 import styles from './Checkbox.module.scss'
 import React, { useContext } from 'react'
 import cx from 'classnames'
-import Text from '../../components/Text/Text'
+import Text from '../Text/Text'
 import Box from '../../layouts/Box/Box'
 import { string, bool, node } from 'prop-types'
 

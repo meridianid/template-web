@@ -1,7 +1,7 @@
 import styles from './CheckboxPage.module.scss'
 import React, { useState } from 'react'
 import cx from 'classnames'
-import { Checkbox, Checkmark, Checklabel } from '../Checkbox/Checkbox'
+import { Checkbox, Checkmark, Checklabel } from '../../components/Checkbox/Checkbox'
 import Container from '../../layouts/Container/Container'
 
 import CheckboxAlt from '../CheckboxAlt/CheckboxAlt'

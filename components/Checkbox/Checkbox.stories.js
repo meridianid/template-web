@@ -8,30 +8,18 @@ import '../../assets/fonts/fonts'
 import './../../base.scss'
 
 import Box from '../../layouts/Box/Box'
-import { RadioGroup, Radio, Radiolabel, Radiomark } from './Radio'
+import { Checkbox, Checkmark, Checklabel } from './Checkbox'
 import StoryPreview from '../../utils/StoryPreview'
-import { TableComponent } from '../TableComponent/TableComponent'
+import { TableComponent } from '../../labs/TableComponent/TableComponent'
 
 const allProps = () => {
   const [selected, setSelected] = useState([])
 
-  const teams = [
-    {
-      value: 'Ongki Herlambang',
-      id: 'asdhsjd',
-    },
-    {
-      value: 'Khairani Ummah',
-      id: 'qwew',
-    },
-    {
-      value: 'Husni Munaya',
-      id: 'jkji232dwdwd',
-    },
-    {
-      value: 'Hanifan Mohammad',
-      id: 'jbbuububu',
-    },
+  const items = [
+    'Look at the stars!',
+    'Look at their shine for you',
+    'Everything you do',
+    "It's all yellow",
   ]
 
   React.useEffect(() => {
@@ -45,29 +33,22 @@ const allProps = () => {
   }
   return (
     <StoryPreview>
-      <RadioGroup name="person" column>
-        {teams.map(person => (
-          <Radio
-            key={person.id}
-            id={person.id}
-            isDisabled={person.id === 'jbbuububu'}
-            justifyBetween
-            style={{ paddingTop: 12, paddingBottom: 12 }}>
-            <Radiomark style={{ marginRight: 12 }} large />
-            <Radiolabel>{person.value}</Radiolabel>
-          </Radio>
-        ))}
-      </RadioGroup>
+      {items.map(item => (
+        <Checkbox key={`sdsdsasds${item}`} id={item} value={item} onChange={handleChange}>
+          <Checkmark />
+          <Checklabel>{item}</Checklabel>
+        </Checkbox>
+      ))}
     </StoryPreview>
   )
 }
 
-storiesOf('Radio', module)
+storiesOf('Checkbox', module)
   .addDecorator(
     withInfo({
       inline: true,
       TableComponent: TableComponent,
-      propTables: [RadioGroup, Radio, Radiomark, Radiolabel],
+      propTables: [Checkbox, Checkmark, Checklabel],
       propTablesExclude: [StoryPreview, Box],
     })
   )
