@@ -9,6 +9,9 @@ import TableView from '../labs/TableView/TableView'
 import Scroll from '../labs/Scroll/Scroll'
 import CheckboxPage from '../labs/CheckboxPage/CheckboxPage'
 import RadioPage from '../labs/RadioPage/RadioPage'
+import DropdownPage from '../labs/DropdownPage/DropdownPage'
+import DialogPage from '../labs/DialogPage/DialogPage'
+import ComboboxPage from '../labs/ComboboxPage/ComboboxPage'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
@@ -17,6 +20,9 @@ const HomePage = ({ className, ...restProps }) => {
       <TableView />
       <CheckboxPage />
       <RadioPage />
+      <DropdownPage />
+      <DialogPage />
+      <ComboboxPage />
       <Scroll />
       <ScrollAlt />
       <WhoWeAre />

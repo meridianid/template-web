@@ -1,79 +1,69 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import omit from 'lodash/omit';
-import has from 'lodash/has';
-import some from 'lodash/some';
-import includes from 'lodash/includes';
-import forEach from 'lodash/forEach';
+import omit from 'lodash/omit'
+import has from 'lodash/has'
+import some from 'lodash/some'
+import includes from 'lodash/includes'
+import forEach from 'lodash/forEach'
 
-export const alignes = [
-  'alignCenter',
-  'alignStart',
-  'alignEnd',
-  'alignStretch',
-  'alignBaseline',
-];
+export const alignes = ['alignCenter', 'alignStart', 'alignEnd', 'alignStretch', 'alignBaseline']
 
 const getBooleanAlignPropTypes = () => {
-  const booleanProps = {};
+  const booleanProps = {}
 
   forEach(alignes, align => {
-    booleanProps[align] = PropTypes.bool;
-  });
+    booleanProps[align] = PropTypes.bool
+  })
 
-  return booleanProps;
-};
+  return booleanProps
+}
 
 export const AlignPropTypes = {
   align: (props, propName, componentName) => {
     // eslint-disable-line consistent-return
     if (props.align && !includes(alignes, props.align)) {
-      return new Error(
-        `Invalid prop size='${props.align}' supplied to ${componentName}`,
-      );
+      return new Error(`Invalid prop size='${props.align}' supplied to ${componentName}`)
     }
 
     if (props.align && some(alignes, align => has(props, align))) {
       return new Error(
-        `Seems that you've accidentially supplied boolean size along with size='${
-          props.align
-        }' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'size' prop.`,
-      );
+        `Seems that you've accidentially supplied boolean size along with size='${props.align}' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'size' prop.`
+      )
     }
   },
   ...getBooleanAlignPropTypes(),
-};
+}
 
 const parseBooleanAlign = props => {
-  const alignProps = {};
+  const alignProps = {}
 
   forEach(alignes, align => {
     if (props[align]) {
-      alignProps.align = align;
+      alignProps.align = align
     }
-  });
+  })
 
-  return alignProps;
-};
+  return alignProps
+}
 
 const withAlignProps = OriginalComponent => {
-  const DecoratedComponent = props => {
-    const alignProp = parseBooleanAlign(props);
+  const DecoratedComponent = React.forwardRef((props, forwardedRef) => {
+    const alignProp = parseBooleanAlign(props)
 
     const newProps = {
       ...omit(props, alignes),
       ...alignProp,
-    };
+    }
 
-    return <OriginalComponent {...newProps} />;
-  };
+    return <OriginalComponent ref={forwardedRef} {...newProps} />
+  })
 
-  DecoratedComponent.propTypes = AlignPropTypes;
+  DecoratedComponent.propTypes = AlignPropTypes
 
-  DecoratedComponent.displayName = OriginalComponent.displayName;
+  DecoratedComponent.displayName = OriginalComponent.displayName
 
-  return DecoratedComponent;
-};
+  return DecoratedComponent
+}
 
-export default withAlignProps;
+export default withAlignProps

@@ -1,9 +1,11 @@
 import styles from './Text.module.scss'
 import React from 'react'
 import { bool, node, object, string, oneOf, oneOfType, shape } from 'prop-types'
-import classnames from 'classnames'
-import withTextProps, { sizes } from '../__private/withTextProps'
-import withTextModifierProps, { modifiers } from '../__private/withTextModifierProps'
+import cx from 'classnames'
+import { motion } from 'framer-motion'
+
+import withTextProps from '../__private/withTextProps'
+import withTextModifierProps from '../__private/withTextModifierProps'
 
 import stylesStrong from './../Strong/Strong.module.scss'
 import stylesRegular from './../Regular/Regular.module.scss'
@@ -28,46 +30,56 @@ const textStyleModifier = {
   whiteSecondary: stylesWhiteSecondary,
 }
 
-export const TextNoModifier = ({
-  as,
-  children,
-  className,
+export const TextNoModifier = React.forwardRef(
+  (
+    {
+      as,
+      children,
+      className,
+      size,
+      modifier,
+      align,
+      strong,
+      regular,
+      light,
+      truncate,
+      breakWord,
+      childStyle,
+      childInitial,
+      childAnimate,
+      ...restProps
+    },
+    forwardedRef
+  ) => {
+    const Component = motion[as] || motion.span
 
-  size,
-  modifier,
-  align,
-
-  strong,
-  regular,
-  light,
-
-  truncate,
-  breakWord,
-  ...restProps
-}) => {
-  const Component = as || 'span'
-  return (
-    <Component
-      className={classnames({
-        [styles[size]]: size,
-        [styles.truncate]: truncate,
-        [styles.breakWord]: breakWord,
-        [styles[align]]: align,
-        [className]: className,
-      })}
-      {...restProps}>
-      <span
-        className={classnames({
-          [textStyleModifier[modifier]]: modifier,
-          [stylesLight.root]: light,
-          [stylesStrong.root]: strong,
-          [stylesRegular.root]: regular,
-        })}>
-        {children}
-      </span>
-    </Component>
-  )
-}
+    return (
+      <Component
+        ref={forwardedRef}
+        className={cx({
+          [styles[size]]: size,
+          [styles.truncate]: truncate,
+          [styles.breakWord]: breakWord,
+          [styles[align]]: align,
+          [className]: className,
+        })}
+        {...restProps}>
+        <motion.span
+          className={cx({
+            [textStyleModifier[modifier]]: modifier,
+            [stylesLight.root]: light,
+            [stylesStrong.root]: strong,
+            [stylesRegular.root]: regular,
+          })}
+          style={childStyle}
+          initial={childInitial}
+          animate={childAnimate}>
+          {children}
+        </motion.span>
+      </Component>
+    )
+  }
+)
 
 TextNoModifier.displayName = 'Text'
 
@@ -75,7 +87,7 @@ TextNoModifier.defaultProps = {
   as: 'span',
   size: 'medium',
   align: 'left',
-  modifier: false,
+  // modifier: false,
   truncate: false,
   breakWord: false,
   regular: false,

@@ -2,26 +2,30 @@ import styles from './Container.module.scss'
 import React from 'react'
 import classnames from 'classnames'
 import { string, bool, object, node, oneOfType } from 'prop-types'
+import { motion } from 'framer-motion'
 
-const Container = ({ as, children, className, narrow, bleed, post, fixLeft, fixRight, ...restProps }) => {
-  let Component = as || 'div'
+const Container = React.forwardRef(
+  ({ as, children, className, narrow, bleed, post, fixLeft, fixRight, ...restProps }, forwardedRef) => {
+    let Component = motion[as]
 
-  return (
-    <Component
-      className={classnames({
-        [styles.normal]: !narrow && !bleed && !post && !fixLeft && !fixRight,
-        [styles.narrow]: narrow,
-        [styles.bleed]: bleed,
-        [styles.post]: post,
-        [styles.fixLeft]: fixLeft,
-        [styles.fixRight]: fixRight,
-        [className]: className,
-      })}
-      {...restProps}>
-      {children}
-    </Component>
-  )
-}
+    return (
+      <Component
+        ref={forwardedRef}
+        className={classnames({
+          [styles.normal]: !narrow && !bleed && !post && !fixLeft && !fixRight,
+          [styles.narrow]: narrow,
+          [styles.bleed]: bleed,
+          [styles.post]: post,
+          [styles.fixLeft]: fixLeft,
+          [styles.fixRight]: fixRight,
+          [className]: className,
+        })}
+        {...restProps}>
+        {children}
+      </Component>
+    )
+  }
+)
 
 Container.displayName = 'Container'
 

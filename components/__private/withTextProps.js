@@ -48,9 +48,7 @@ export const SizePropTypes = {
 
     if (props.size && some(sizes, size => has(props, size))) {
       return new Error(
-        `Seems that you've accidentially supplied boolean size along with size='${
-          props.size
-        }' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'size' prop.`
+        `Seems that you've accidentially supplied boolean size along with size='${props.size}' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'size' prop.`
       )
     }
   },
@@ -70,7 +68,7 @@ const parseBooleanSize = props => {
 }
 
 const withTextProps = OriginalComponent => {
-  const DecoratedComponent = props => {
+  const DecoratedComponent = React.forwardRef((props, forwardedRef) => {
     const sizeProp = parseBooleanSize(props)
 
     const newProps = {
@@ -78,8 +76,8 @@ const withTextProps = OriginalComponent => {
       ...sizeProp,
     }
 
-    return <OriginalComponent {...newProps} />
-  }
+    return <OriginalComponent ref={forwardedRef} {...newProps} />
+  })
 
   DecoratedComponent.propTypes = SizePropTypes
   DecoratedComponent.displayName = OriginalComponent.displayName

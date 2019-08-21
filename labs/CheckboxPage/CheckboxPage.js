@@ -8,7 +8,6 @@ import CheckboxAlt from '../CheckboxAlt/CheckboxAlt'
 import ChecklabelAlt from './../CheckLabel/CheckLabel'
 import CheckmarkAlt from './../CheckMark/CheckMark'
 import Box from '../../layouts/Box/Box'
-import { select } from 'glamor'
 import Text from '../../components/Text/Text'
 
 const teams = [

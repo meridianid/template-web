@@ -2,7 +2,7 @@ import styles from './Dropdown.module.scss'
 import React, { useState, useRef, useEffect } from 'react'
 import classnames from 'classnames'
 
-import { ReactComponent as ExpandMore } from './icons/expand-more.svg'
+import Expand from './icons/expand.inline.svg'
 import { DropdownContext } from '../../components/__context'
 
 const Dropdown = ({
@@ -68,7 +68,7 @@ const Dropdown = ({
         </select>
         {arrow ? (
           <span aria-hidden className={styles.arrowContainer}>
-            <ExpandMore className={styles.arrow} />
+            <Expand className={styles.arrow} />
           </span>
         ) : null}
       </div>

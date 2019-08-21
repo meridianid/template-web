@@ -8,7 +8,7 @@ import includes from 'lodash/includes'
 import forEach from 'lodash/forEach'
 
 export const modifiers = [
-  false,
+  // false,
   'link',
   'positive',
   'critical',
@@ -38,9 +38,7 @@ export const ModifierPropTypes = {
 
     if (props.modifier && some(modifiers, modifier => has(props, modifier))) {
       return new Error(
-        `Seems that you've accidentially supplied boolean size along with modifier='${
-          props.modifier
-        }' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'modifier' prop.`
+        `Seems that you've accidentially supplied boolean size along with modifier='${props.modifier}' to ${componentName}, please remove one of them. Otherwise boolean prop will overwrite the 'modifier' prop.`
       )
     }
   },
@@ -60,7 +58,7 @@ const parseBooleanModifier = props => {
 }
 
 const withTextModifierProps = OriginalComponent => {
-  const DecoratedComponent = props => {
+  const DecoratedComponent = React.forwardRef((props, forwardedRef) => {
     const modifierProp = parseBooleanModifier(props)
 
     const newProps = {
@@ -68,8 +66,8 @@ const withTextModifierProps = OriginalComponent => {
       ...modifierProp,
     }
 
-    return <OriginalComponent {...newProps} />
-  }
+    return <OriginalComponent ref={forwardedRef} {...newProps} />
+  })
 
   DecoratedComponent.propTypes = ModifierPropTypes
   DecoratedComponent.displayName = OriginalComponent.displayName
