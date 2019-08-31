@@ -12,6 +12,7 @@ import RadioPage from '../labs/RadioPage/RadioPage'
 import DropdownPage from '../labs/DropdownPage/DropdownPage'
 import DialogPage from '../labs/DialogPage/DialogPage'
 import ComboboxPage from '../labs/ComboboxPage/ComboboxPage'
+import RectanglePage from '../labs/RectanglePage/RectanglePage'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
@@ -23,6 +24,7 @@ const HomePage = ({ className, ...restProps }) => {
       <DropdownPage />
       <DialogPage />
       <ComboboxPage />
+      <RectanglePage />
       <Scroll />
       <ScrollAlt />
       <WhoWeAre />
