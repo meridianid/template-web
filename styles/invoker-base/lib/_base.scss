@@ -2,6 +2,11 @@
 $list-style: none;
 $base-font-size: 16px;
 
+// Debugger Mixins
+// Adds soft red background-color and outline to every elements on the page
+// Just uncomment the line below to enable
+// @include debugger();
+
 :root {
   @if global-variable-exists(scale) {
     --scale-element: 1;
@@ -23,10 +28,6 @@ $base-font-size: 16px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  // Enable for debugging purpose
-  // outline: 1px solid red;
-
 }
 
 /* Document */
@@ -124,7 +125,7 @@ strong {
 
 // Horizontal lines
 hr {
-   // Add the correct box sizing in Firefox.
+  // Add the correct box sizing in Firefox.
   box-sizing: content-box;
   height: 0;
 
@@ -144,10 +145,14 @@ table {
 }
 
 details {
-  summary { cursor: pointer; }
+  summary {
+    cursor: pointer;
+  }
   &:not([open]) {
     // Set details content hidden by default for browsers that don't do this
-    > *:not(summary) { display: none !important; }
+    > *:not(summary) {
+      display: none !important;
+    }
   }
 }
 
@@ -163,7 +168,7 @@ select:-moz-focusring {
 /**
  * Fix placeholder font properties inheritance.
  */
- ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
   font: inherit;
 }
 :-ms-input-placeholder {
