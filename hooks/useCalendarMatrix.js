@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { addDays, startOfWeek, differenceInCalendarWeeks, endOfMonth, startOfMonth } from 'date-fns'
 
-const generateMatrix = (year, month, formatDay = day => day, weekStartsOn = 1, daysInWeek = 7) => {
+export const generateMatrix = (year, month, formatDay, weekStartsOn, daysInWeek) => {
   let date = new Date(year, month)
   let startDay = startOfMonth(date)
   let lastDay = endOfMonth(date)
@@ -11,14 +11,12 @@ const generateMatrix = (year, month, formatDay = day => day, weekStartsOn = 1, d
   const cols = daysInWeek
   const totalDays = rows * cols
 
-  let matrix = Array.from({ length: totalDays })
+  return Array.from({ length: totalDays })
     .map((_, index) => addDays(startDate, index))
     .map(day => (typeof formatDay === 'function' ? formatDay(day) : day))
     .reduce((matrix, current, index, days) => {
       return index % cols === 0 ? [...matrix, days.slice(index, index + cols)] : matrix
     }, [])
-
-  return matrix
 }
 
 export const useCalendarMatrix = (
