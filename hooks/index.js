@@ -1,3 +1,4 @@
+export { useCalendarMatrix } from './useCalendarMatrix'
 export { useEventListener } from './useEventListener'
 export { useIsOnline } from './useIsOnline'
 export { useIsMobile } from './useIsMobile'

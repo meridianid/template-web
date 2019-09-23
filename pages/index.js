@@ -13,11 +13,13 @@ import DropdownPage from '../labs/DropdownPage/DropdownPage'
 import DialogPage from '../labs/DialogPage/DialogPage'
 import ComboboxPage from '../labs/ComboboxPage/ComboboxPage'
 import RectanglePage from '../labs/RectanglePage/RectanglePage'
+import Matrix from '../labs/Matrix/Matrix'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
     <Default>
       <Intro />
+      <Matrix />
       <TableView />
       <CheckboxPage />
       <RadioPage />
