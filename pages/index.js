@@ -14,11 +14,13 @@ import DialogPage from '../labs/DialogPage/DialogPage'
 import ComboboxPage from '../labs/ComboboxPage/ComboboxPage'
 import RectanglePage from '../labs/RectanglePage/RectanglePage'
 import Matrix from '../labs/Matrix/Matrix'
+import SizedElement from '../labs/SizedElement/SizedElement'
 
 const HomePage = ({ className, ...restProps }) => {
   return (
     <Default>
       <Intro />
+      <SizedElement />
       <Matrix />
       <TableView />
       <CheckboxPage />

@@ -1,9 +1,10 @@
 import styles from './Matrix.module.scss'
 import React, { useState, useEffect } from 'react'
 import cx from 'classnames'
+import { useCalendarMatrix } from 'use-calendar-matrix'
 
 import { getMonth, getYear, getDate, format, isSameMonth, addMonths } from 'date-fns'
-import { useCalendarMatrix } from '../../hooks'
+// import { useCalendarMatrix } from '../../hooks'
 import Box from '../../layouts/Box/Box'
 import Text from '../../components/Text/Text'
 import Container from '../../layouts/Container/Container'
@@ -18,7 +19,7 @@ const Matrix = ({ children, className, ...restProps }) => {
     setDate(new Date(year, month))
   }, [year, month])
 
-  let calendars = useCalendarMatrix(year, month)
+  let [calendars] = useCalendarMatrix(year, month)
 
   return (
     <Section id="calendar-matrix">
