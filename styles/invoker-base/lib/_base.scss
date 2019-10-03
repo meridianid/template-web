@@ -1,5 +1,10 @@
 // TEMP Variable declarations
+
+// list-style text
 $list-style: none;
+$list-style-two: lower-roman;
+$list-style-three: lower-alpha;
+
 $base-font-size: 16px;
 
 // Debugger Mixins
@@ -25,8 +30,6 @@ $base-font-size: 16px;
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -41,9 +44,35 @@ html {
 
 body {
   position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
   font-family: $font-primary;
   color: $dark-alpha-70;
   background-color: $light-hex-100;
+}
+
+// Reset Default Padding
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+// Reset Default Margin
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
 // Render the `main` element consistently in IE.
@@ -76,7 +105,8 @@ abbr[title] {
 */
 img {
   border-style: none;
-  vertical-align: bottom;
+  max-width: 100%;
+  display: block;
 }
 embed,
 object,
@@ -95,27 +125,27 @@ samp {
 }
 
 // Remove the gray background on active links in IE 10.
-a {
+a:not([class]) {
   background-color: transparent;
-  text-decoration: none;
+  text-decoration-skip-ink: auto;
   color: $brand-primary-200;
 }
 
-ul,
-ol {
+ul[class],
+ol[class] {
   list-style: $list-style;
 }
 
 ol ol,
 ul ol {
-  list-style-type: lower-roman;
+  list-style-type: $list-style-two;
 }
 
 ul ul ol,
 ul ol ol,
 ol ul ol,
 ol ol ol {
-  list-style-type: lower-alpha;
+  list-style-type: $list-style-three;
 }
 
 b,
